@@ -356,6 +356,12 @@ const observer = new IntersectionObserver(entries => {
 document.querySelectorAll(".card").forEach(section => {
   observer.observe(section);
 });
+    
+window.history.pushState(null, "", window.location.href);
+window.onpopstate = function() {
+    window.location.href = "index.html";
+};
+
 </script>
 </body>
 </html>
