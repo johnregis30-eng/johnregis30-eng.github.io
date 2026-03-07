@@ -1,8 +1,8 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>John Regis</title>
 
 <link href="https://fonts.googleapis.com/css2?family=Libre+Baskerville:wght@400;700&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
@@ -12,15 +12,19 @@
 body{
 margin:0;
 font-family:"Inter",sans-serif;
-background:#fafafa;
-color:#111;
+background:#f7efe5;
+color:#2b2b2b;
 line-height:1.7;
+
+/* subtle texture */
+background-image: radial-gradient(#e6d5c4 1px, transparent 1px);
+background-size:45px 45px;
 }
 
-/* HERO */
+/* HEADER */
 
 header{
-background:#111;
+background:linear-gradient(135deg,#1a1410,#3a2218);
 color:white;
 padding:5rem 2rem;
 text-align:center;
@@ -28,82 +32,74 @@ text-align:center;
 
 header h1{
 font-family:"Libre Baskerville",serif;
-font-size:48px;
-letter-spacing:3px;
+letter-spacing:2px;
 margin-bottom:10px;
 }
 
 header p{
-font-size:18px;
-color:#bbb;
+opacity:0.85;
 }
 
-.hero-quote{
-margin-top:15px;
-font-style:italic;
-color:#aaa;
-}
-
-/* NAV */
+/* NAVBAR */
 
 nav{
 display:flex;
 justify-content:center;
 gap:2rem;
-padding:1.5rem;
+padding:1rem;
+font-size:15px;
 }
 
 nav a{
-color:#444;
+color:#c44a1a;
 text-decoration:none;
 font-weight:500;
 letter-spacing:1px;
-transition:all 0.2s;
+transition:all .2s;
 }
 
 nav a:hover{
-color:black;
+color:#e67e22;
 }
 
-/* CONTENT */
+/* MAIN CONTAINER */
 
 .container{
-max-width:760px;
-margin:4rem auto;
+max-width:900px;
+margin:3rem auto;
 padding:1rem;
 }
 
-/* CLEAN SECTIONS */
+/* SECTIONS */
 
 .card{
 background:transparent;
 padding:1rem 0;
 margin-bottom:3rem;
-border-bottom:1px solid #e6e6e6;
+border-bottom:1px solid #d8c6b5;
 }
 
 .card h2{
 font-family:"Libre Baskerville",serif;
-font-size:28px;
-margin-bottom:1rem;
+margin-bottom:10px;
 }
 
 /* LINKS */
 
 a{
-color:#111;
+color:#c44a1a;
 text-decoration:none;
 font-weight:500;
 }
 
 a:hover{
-text-decoration:underline;
+color:#e67e22;
 }
 
-/* LIST */
+/* PROJECT LIST */
 
 ul{
-padding-left:20px;
+padding-left:18px;
 }
 
 li{
@@ -112,16 +108,12 @@ margin-bottom:10px;
 
 /* CONTACT */
 
-#contact{
-text-align:center;
-}
-
-#phone-number{
-display:none;
-opacity:0;
-margin-left:10px;
-color:#777;
-transition:opacity .5s;
+.contact-links{
+display:flex;
+justify-content:center;
+gap:1.5rem;
+align-items:center;
+margin-top:10px;
 }
 
 /* FOOTER */
@@ -131,7 +123,7 @@ text-align:center;
 padding:3rem;
 margin-top:4rem;
 font-size:14px;
-color:#666;
+color:#6b5b4b;
 }
 
 </style>
@@ -141,8 +133,7 @@ color:#666;
 
 <header>
 <h1>JOHN REGIS</h1>
-<p>Quantum Technology · 2D Materials · Philosophy</p>
-<p class="hero-quote">Exploring matter, systems, and ideas.</p>
+<p>MS Quantum Tech | 2D Materials | Philosophy</p>
 </header>
 
 <nav>
@@ -154,25 +145,20 @@ color:#666;
 <div class="container">
 
 <section id="about" class="card">
-<h2>About</h2>
-
+<h2>About Me</h2>
 <p>
-I am an MSc Quantum Technology student at IISER Pune working in condensed matter physics under Dr. Aparna Deshpande.
-My interests span 2D quantum materials, scanning probe microscopy (STM/AFM), and electronic transport studies
-including precision IV characterization.
+I am an MSc Quantum Technology student at IISER Pune, working in condensed matter physics under Dr. Aparna Deshpande.  
+My interests span 2D quantum materials, scanning probe microscopy (STM/AFM), and electronic transport studies including precision IV characterization.
 </p>
-
 </section>
 
 <section id="projects" class="card">
-
 <h2>Projects</h2>
-
 <ul>
 
 <li>
 <a href="https://github.com/johnregis30-eng/Silly_Physics/blob/main/Summer_Internship_Report_25072025.pdf" target="_blank">
-AFM / STM Summer Internship Report
+AFM/STM Summer Internship Report
 </a>
 </li>
 
@@ -195,24 +181,22 @@ Quantum Random Walk of the Knight
 </li>
 
 </ul>
-
 </section>
 
-<section id="contact" class="card">
-
+<section id="contact" class="card" style="text-align:center;">
 <h2>Contact</h2>
 
-<div style="display:flex;justify-content:center;gap:1.5rem;align-items:center;">
+<div class="contact-links">
 
-<a href="mailto:john.regis@students.iiserpune.ac.in">Email</a>
+<a href="mailto:john.regis@students.iiserpune.ac.in">Gmail</a>
 
 <a href="https://www.linkedin.com/in/johnregis" target="_blank">LinkedIn</a>
 
 <a href="https://github.com/johnregis30-eng" target="_blank">GitHub</a>
 
-<span id="phone-link" style="cursor:pointer;">Phone</span>
+<span id="phone-link" style="cursor:pointer;color:#c44a1a;">Phone</span>
 
-<span id="phone-number">75710240487</span>
+<span id="phone-number" style="display:none;color:#8a6a54;margin-left:10px;">75710240487</span>
 
 </div>
 
@@ -232,13 +216,11 @@ const phoneNumber = document.getElementById('phone-number');
 phoneLink.addEventListener('click', () => {
 
 if(phoneNumber.style.display === 'none'){
-phoneNumber.style.display='inline';
-setTimeout(()=>phoneNumber.style.opacity='1',10);
+phoneNumber.style.display = 'inline';
 }
 
 else{
-phoneNumber.style.opacity='0';
-setTimeout(()=>phoneNumber.style.display='none',500);
+phoneNumber.style.display = 'none';
 }
 
 });
