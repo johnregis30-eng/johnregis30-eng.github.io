@@ -317,5 +317,13 @@ document.querySelectorAll(".card").forEach(section => {
 });
 </script>
 
+<!-- Always go back to portfolio on browser back -->
+<script>
+history.pushState(null, null, location.href);
+window.onpopstate = function() {
+    window.location.href = "index.html";
+};
+</script>
+
 </body>
 </html>
