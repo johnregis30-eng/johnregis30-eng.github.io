@@ -7,137 +7,208 @@
 <link rel="icon" type="image/jpeg" href="https://raw.githubusercontent.com/johnregis30-eng/johnregis30-eng.github.io/main/Red_Fox_5.jpg">
 <link href="https://fonts.googleapis.com/css2?family=Libre+Baskerville:wght@400;700&family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
 <style>
+/* GENERAL */
 body{
-  margin:0;
-  font-family:"Inter", sans-serif;
-  background:#f4e9dc; /* same as main page */
-  color:#2b2b2b;
-  line-height:1.6;
+    margin:0;
+    font-family:"Inter",sans-serif;
+    background:#f4e9dc;
+    color:#2b2b2b;
+    line-height:1.7;
 }
 
 /* HEADER */
 header{
-  background:linear-gradient(135deg,#2b1b16,#4a2416);
-  color:white;
-  padding:3rem 1rem;
-  text-align:center;
+    background:linear-gradient(135deg,#2b1b16,#4a2416);
+    color:white;
+    padding:3rem 2rem;
+    text-align:center;
+    position:relative;
 }
 
 header h1{
-  font-family:"Libre Baskerville", serif;
-  font-size:36px;
-  margin-bottom:0.5rem;
+    font-family:"Libre Baskerville",serif;
+    font-size:40px;
+    letter-spacing:2px;
+    margin-bottom:5px;
 }
 
 header p{
-  opacity:0.9;
+    opacity:.9;
+    margin:0;
 }
 
 .hero-quote{
-  font-style:italic;
-  color:#f3c7a5;
-  margin-top:0.5rem;
+    margin-top:10px;
+    font-style:italic;
+    color:#f3c7a5;
 }
 
 /* NAVIGATION */
 nav{
-  display:flex;
-  justify-content:center;
-  gap:1.5rem;
-  background:#fff;
-  padding:1rem 0;
-  border-bottom:1px solid #d9c5b3;
+    display:flex;
+    justify-content:center;
+    gap:2rem;
+    padding:1rem;
+    background:#fff0e5;
+    border-bottom:2px solid #d04a1c;
 }
 
 nav a{
-  text-decoration:none;
-  color:#a63b16;
-  font-weight:500;
+    color:#a63b16;
+    text-decoration:none;
+    font-weight:500;
+    letter-spacing:1px;
+    padding-bottom:4px;
+    position:relative;
+}
+
+nav a::after{
+    content:"";
+    position:absolute;
+    left:0;
+    bottom:0;
+    width:0;
+    height:2px;
+    background:#ff8a3c;
+    transition:width 0.3s ease;
+}
+
+nav a:hover::after{
+    width:100%;
 }
 
 nav a:hover{
-  color:#ff8a3c;
+    color:#ff8a3c;
 }
 
 /* CONTAINER */
 .container{
-  max-width:800px;
-  margin:2rem auto;
-  padding:1.5rem 2rem;
-  background:#fff;
-  border-radius:6px;
-  box-shadow:0 4px 8px rgba(0,0,0,0.05);
+    max-width:900px;
+    margin:2rem auto;
+    padding:1rem 2rem;
 }
 
-/* HEADINGS */
-h2{
-  font-family:"Libre Baskerville", serif;
-  color:#a63b16;
-  margin-top:0;
+/* SECTIONS */
+.card{
+    padding:1.5rem 1rem;
+    margin-bottom:2rem;
+    border-bottom:1px solid #d9c5b3;
 }
 
-/* LINKS */
+.card h2{
+    font-family:"Libre Baskerville",serif;
+    color:#a63b16;
+    margin-bottom:0.8rem;
+}
+
+.card ul{
+    padding-left:20px;
+}
+
+.card li{
+    margin-bottom:8px;
+}
+
 a{
-  color:#d04a1c;
-  text-decoration:none;
-  font-weight:500;
+    color:#d04a1c;
+    text-decoration:none;
+    font-weight:500;
 }
 
 a:hover{
-  color:#ff8a3c;
-}
-
-ul{
-  padding-left:20px;
-}
-
-li{
-  margin-bottom:0.8rem;
+    color:#ff8a3c;
 }
 
 /* FOOTER */
 footer{
-  text-align:center;
-  padding:2rem;
-  margin-top:2rem;
-  font-size:14px;
-  color:#6f4b3a;
-  background:#f4e9dc;
+    text-align:center;
+    padding:2rem;
+    margin-top:2rem;
+    font-size:14px;
+    color:#6f4b3a;
 }
 </style>
 </head>
-
 <body>
+
 <header>
 <h1>John Regis</h1>
-<p>M.Sc. Quantum Technology, IISER Pune</p>
+<p>M.Sc. in Quantum Technology, IISER Pune</p>
 <p class="hero-quote">Exploring physics, materials, and the systems that shape our technological future.</p>
 </header>
 
 <nav>
-<a href="index.html#about">Portfolio</a>
-<a href="index.html#projects">Projects</a>
-<a href="index.html#thoughts">Thoughts</a>
-<a href="CV.html">CV</a>
-<a href="index.html#contact">Contact</a>
+<a href="#education">Education</a>
+<a href="#research-experience">Research Experience</a>
+<a href="#quantum-lab">Quantum Lab Experience</a>
+<a href="#skills">Skills</a>
+<a href="#workshops">Workshop & Certificate Courses</a>
+<a href="#research-interest">Research Interest</a>
 </nav>
 
 <div class="container">
-<h2>Curriculum Vitae</h2>
-<p>You can download my full CV <a href="CV_JOHN_REGIS (1).pdf" target="_blank">here</a>.</p>
+
+<section id="education" class="card">
+<h2>Education</h2>
 <ul>
-<li><strong>Education:</strong> M.Sc. in Quantum Technology, IISER Pune</li>
-<li><strong>Research Focus:</strong> Experimental Condensed Matter Physics, 2D Materials</li>
-<li><strong>Skills:</strong> Quantum Mechanics, 2D Material Fabrication, Raman Spectroscopy, Optical Characterization</li>
-<li><strong>Projects:</strong> Quantum Random Walks, Quantum Random Number Generator, HOPG/MoS2 Heterostructures</li>
-<li><strong>Work Experience:</strong> Add details if needed</li>
-<li><strong>Publications:</strong> Add publications if any</li>
-<li><strong>Contact:</strong> johnregis30@gmail.com | <a href="https://www.linkedin.com/in/john-regis-9b77551b3" target="_blank">LinkedIn</a> | <a href="https://github.com/johnregis30-eng" target="_blank">GitHub</a></li>
+<li>M.Sc. in Quantum Technology, IISER Pune</li>
+<li>B.Sc. Physics, Christ College</li>
 </ul>
+</section>
+
+<section id="research-experience" class="card">
+<h2>Research Experience</h2>
+<ul>
+<li>Experimental Condensed Matter Physics with focus on 2D materials</li>
+<li>High-resolution optical and electronic characterization of layered materials</li>
+<li>Quantum Random Number Generator using Zener diodes</li>
+<li>Fabrication and characterization of HOPG/MoS2 heterostructures</li>
+</ul>
+</section>
+
+<section id="quantum-lab" class="card">
+<h2>Quantum Lab Experience</h2>
+<ul>
+<li>Quantum random walks and polarization qubit experiments</li>
+<li>Raman spectroscopy and optical setups for 2D materials</li>
+<li>Low-dimensional system measurements at cryogenic temperatures</li>
+</ul>
+</section>
+
+<section id="skills" class="card">
+<h2>Skills</h2>
+<ul>
+<li>Quantum Mechanics & Condensed Matter Theory</li>
+<li>2D Material Fabrication & Characterization</li>
+<li>Raman Spectroscopy, Optical & Electronic Transport</li>
+<li>Python, Qiskit, Fortran (simulation & analysis)</li>
+</ul>
+</section>
+
+<section id="workshops" class="card">
+<h2>Workshop & Certificate Courses</h2>
+<ul>
+<li>Workshop on Quantum Information & Computation</li>
+<li>Training on Raman Spectroscopy & Material Analysis</li>
+<li>Certificate Course in Advanced Condensed Matter Physics</li>
+</ul>
+</section>
+
+<section id="research-interest" class="card">
+<h2>Research Interest</h2>
+<ul>
+<li>Low-dimensional systems and van der Waals heterostructures</li>
+<li>Emergence of quantum phenomena in real materials</li>
+<li>Optical and electronic characterization techniques for 2D materials</li>
+<li>Integration of experimental results into quantum hardware design</li>
+</ul>
+</section>
+
 </div>
 
 <footer>
 © 2026 John
 </footer>
+
 </body>
 </html>
