@@ -7,6 +7,17 @@
 <link rel="icon" type="image/jpeg" href="https://raw.githubusercontent.com/johnregis30-eng/johnregis30-eng.github.io/main/Red_Fox_5.jpg">
 <link href="https://fonts.googleapis.com/css2?family=Libre+Baskerville:wght@400;700&family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
 <style>
+    .card{
+  opacity: 0;
+  transform: translateY(40px);
+  transition: all 0.8s ease;
+}
+
+.card.show{
+  opacity: 1;
+  transform: translateY(0);
+}
+
 /* GENERAL */
 body{
     margin:0;
@@ -332,6 +343,19 @@ Research interests lie in condensed matter physics, focusing on quantum material
 <footer>
 © 2026 John
 </footer>
+<!-- Intersection Observer Script for fade-in -->
+<script>
+const observer = new IntersectionObserver(entries => {
+  entries.forEach(entry => {
+    if(entry.isIntersecting){
+      entry.target.classList.add("show");
+    }
+  });
+});
 
+document.querySelectorAll(".card").forEach(section => {
+  observer.observe(section);
+});
+</script>
 </body>
 </html>
