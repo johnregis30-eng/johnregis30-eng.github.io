@@ -186,17 +186,5 @@ document.querySelectorAll(".card").forEach(section => {
 });
 </script>
 
-<!-- Force Back Button Smoothly to Portfolio -->
-<script>
-// Push a dummy state to prevent default back navigation
-history.replaceState({ page: "cv" }, "", location.href);
-history.pushState({ page: "dummy" }, "", location.href);
-
-// On back button, go to index.html
-window.addEventListener("popstate", function(event) {
-    window.location.href = "index.html";
-});
-</script>
-
 </body>
 </html>
