@@ -17,10 +17,26 @@ font-family:"Inter",sans-serif;
 background:#f4e9dc;
 color:#2b2b2b;
 line-height:1.7;
+}
 
-/* subtle paper texture */
-background-image: radial-gradient(#e8d9c8 1px, transparent 1px);
-background-size:40px 40px;
+/* faint fox background */
+
+body::before{
+content:"";
+position:fixed;
+top:100px;
+right:-120px;
+width:700px;
+height:700px;
+
+background-image:url("https://raw.githubusercontent.com/johnregis30-eng/johnregis30-eng.github.io/main/Red_Fox_1.jpg");
+
+background-size:contain;
+background-repeat:no-repeat;
+
+opacity:0.05;
+pointer-events:none;
+z-index:-1;
 }
 
 /* HEADER */
@@ -43,6 +59,25 @@ height:4px;
 background:linear-gradient(90deg,#d04a1c,#ff8a3c);
 }
 
+/* FOX LOGO */
+
+.fox-logo{
+width:160px;
+margin-bottom:20px;
+border-radius:6px;
+opacity:.95;
+
+filter: drop-shadow(0 8px 10px rgba(0,0,0,0.25));
+
+transition:transform .4s ease;
+}
+
+.fox-logo:hover{
+transform:scale(1.05);
+}
+
+/* TITLE */
+
 header h1{
 font-family:"Libre Baskerville",serif;
 font-size:48px;
@@ -51,7 +86,7 @@ margin-bottom:10px;
 }
 
 header p{
-opacity:.85;
+opacity:.9;
 }
 
 .hero-quote{
@@ -60,7 +95,7 @@ font-style:italic;
 color:#f3c7a5;
 }
 
-/* NAVIGATION */
+/* NAV */
 
 nav{
 display:flex;
@@ -116,7 +151,7 @@ a:hover{
 color:#ff8a3c;
 }
 
-/* PROJECT LIST */
+/* LIST */
 
 ul{
 padding-left:20px;
@@ -132,7 +167,6 @@ margin-bottom:10px;
 display:flex;
 justify-content:center;
 gap:1.5rem;
-align-items:center;
 margin-top:10px;
 }
 
@@ -153,7 +187,12 @@ color:#6f4b3a;
 
 <header>
 
+<img src="https://raw.githubusercontent.com/johnregis30-eng/johnregis30-eng.github.io/main/Red_Fox_1.jpg"
+class="fox-logo"
+alt="Fox Logo">
+
 <h1>John</h1>
+
 <p>Student • Quantum Technology • Systems Thinker</p>
 
 <p class="hero-quote">
@@ -178,12 +217,14 @@ Exploring physics, systems, and the ideas that shape the world.
 <h2>About</h2>
 
 <p>
-I study quantum technologies and complex systems.  
-My interests include physics, information systems, political structures, and philosophy of science.
+I study quantum technologies and complex systems.
+My interests include physics, information systems,
+political structures, and philosophy of science.
 </p>
 
 <p>
-This site is a small notebook of ideas, projects, and experiments.
+This website is a small notebook of ideas,
+projects, and experiments.
 </p>
 
 </section>
