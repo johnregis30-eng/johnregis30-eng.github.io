@@ -4,9 +4,7 @@
 <head>
 
 <meta charset="UTF-8">
-
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
 <title>John | Portfolio</title>
 
 <!-- FAVICON -->
@@ -27,11 +25,12 @@ transition:all 0.8s ease;
 opacity:1;
 transform:translateY(0);
 }  
+
 /* Scrolling animation */
 html{
 scroll-behavior:smooth;
 }
-  
+
 /* GENERAL */  
 body{
 margin:0;
@@ -42,42 +41,32 @@ line-height:1.7;
 }
 
 /* BACKGROUND FOX */
-
 body::before{
 content:"";
 position:fixed;
-
 top:50%;
 right:-10vw;
 transform:translateY(-50%);
-
 width:60vw;
 height:60vw;
-
 background-image:url("https://johnregis30-eng.github.io/Red_Fox_2.jpg");
 background-size:contain;
 background-repeat:no-repeat;
-
 opacity:0.10;
-
 pointer-events:none;
 z-index:-1;
-
 }
 
 @media (max-width: 768px){
-
 body::before{
 right:-20vw;
 width:90vw;
 height:90vw;
 opacity:0.12;
 }
-
 }
 
 /* HEADER */
-
 header{
 background:linear-gradient(135deg,#2b1b16,#4a2416);
 color:white;
@@ -97,12 +86,10 @@ background:linear-gradient(90deg,#d04a1c,#ff8a3c);
 }
 
 /* FOX LOGO */
-
 .fox-logo{
 width:170px;
 margin-bottom:20px;
 border-radius:6px;
-
 filter:drop-shadow(0 8px 10px rgba(0,0,0,0.25));
 transition:transform .35s ease;
 }
@@ -112,7 +99,6 @@ transform:scale(1.05);
 }
 
 /* HEADER TEXT */
-
 header h1{
 font-family:"Libre Baskerville",serif;
 font-size:48px;
@@ -131,7 +117,6 @@ color:#f3c7a5;
 }
 
 /* NAVIGATION */
-
 nav{
 display:flex;
 justify-content:center;
@@ -149,7 +134,6 @@ padding-bottom:4px;
 }
 
 /* animated underline */
-
 nav a::after{
 content:"";
 position:absolute;
@@ -170,7 +154,6 @@ color:#ff8a3c;
 }
 
 /* CONTENT */
-
 .container{
 max-width:820px;
 margin:3rem auto;
@@ -178,7 +161,6 @@ padding:1rem;
 }
 
 /* SECTIONS */
-
 .card{
 padding:1rem 0;
 margin-bottom:3rem;
@@ -191,7 +173,6 @@ color:#a63b16;
 }
 
 /* LINKS */
-
 a{
 color:#d04a1c;
 text-decoration:none;
@@ -203,7 +184,6 @@ color:#ff8a3c;
 }
 
 /* LIST */
-
 ul{
 padding-left:20px;
 }
@@ -213,7 +193,6 @@ margin-bottom:10px;
 }
 
 /* CONTACT */
-
 .contact-links{
 display:flex;
 justify-content:center;
@@ -222,7 +201,6 @@ margin-top:10px;
 }
 
 /* FOOTER */
-
 footer{
 text-align:center;
 padding:3rem;
@@ -230,130 +208,65 @@ margin-top:4rem;
 font-size:14px;
 color:#6f4b3a;
 }
-
 </style>
 </head>
 
 <body>
 
 <header>
-
 <img
 src="https://raw.githubusercontent.com/johnregis30-eng/johnregis30-eng.github.io/main/Red_Fox_1.jpg"
 class="fox-logo"
 alt="Fox Logo">
 
 <h1>John Regis</h1>
-
 <p>Condensed Matter physics • Quantum Technology • 2D materials </p>
-
 <p class="hero-quote">
 Exploring physics, materials, and the systems that shape our technological future.
 </p>
-
 </header>
 
 <nav>
-
 <a href="#about">About</a>
 <a href="#projects">Projects</a>
 <a href="#thoughts">Thoughts</a>
-<a href="#contact">Contact</a>
 <a href="#cv">CV</a>
-
+<a href="#contact">Contact</a>
 </nav>
 
 <div class="container">
 
 <section id="about" class="card">
-
 <h2>About</h2>
-
 <p>
 I am a master's student in Quantum Technology with a research focus in experimental condensed matter physics. My primary interests lie in low-dimensional systems, particularly two-dimensional materials and their electronic and quantum properties.
 </p>
-
 <p>
 I am interested in understanding how quantum phenomena emerge in real materials and how they can be measured and explored through experiment.
 </p>
-
 </section>
 
 <section id="projects" class="card">
-
 <h2>Projects</h2>
-
 <ul>
-<li>
-<a href="RandomWalk_of_Knight.pdf" target="_blank">
-Random Walk of the Knight 
-</a>
-</li>
-<li>
-<a href="Random_Walk_and_Return%20(2)%20(1).pdf" target="_blank">
-Random Walk and Return of the Knight
-</a>
-</li>
-<li>
-<a href="Quantum_Random_Walk_of_the_Knight%20(2)%20(1).pdf" target="_blank">
-Quantum Random Walk of the Knight 
-</a>
-</li>
-<li>
-<a href="Quantum_Random_Number_Generator.pdf" target="_blank">
-Quantum Random Number Generator using Zenor Diode 
-</a>
-</li>
-<li>
-<a href="Summer_Internship_Report_25072025%20(1).pdf" target="_blank">
-Mechanical Exfoliation of HOPG and
-Estimation of the Number of Layers of a
-Few Layered Graphene Flake
-</a>
-</li>
-<li>
-<a href="Third_Semester_Project%20(1).pdf" target="_blank">
-Fabrication of Hetero-Structure and
-Charectirization of HOPG/MoS2
-</a>
-</li>
-<li>
-<a href="Von_Nueamann___Polarization_Qubit%20(2).pdf" target="_blank">
-Von Neumann – Polarization Qubit 
-</a>
-</li>
-<li>
-<a href="Personal_Note_Scanning_Probe_Microscopy%20(1).pdf" target="_blank">
-Scanning Probe Microscopy - Personal Notes
-</a>
-</li>
+<li><a href="RandomWalk_of_Knight.pdf" target="_blank">Random Walk of the Knight</a></li>
+<li><a href="Random_Walk_and_Return%20(2)%20(1).pdf" target="_blank">Random Walk and Return of the Knight</a></li>
+<li><a href="Quantum_Random_Walk_of_the_Knight%20(2)%20(1).pdf" target="_blank">Quantum Random Walk of the Knight</a></li>
+<li><a href="Quantum_Random_Number_Generator.pdf" target="_blank">Quantum Random Number Generator using Zenor Diode</a></li>
+<li><a href="Summer_Internship_Report_25072025%20(1).pdf" target="_blank">Mechanical Exfoliation of HOPG and Estimation of the Number of Layers of a Few Layered Graphene Flake</a></li>
+<li><a href="Third_Semester_Project%20(1).pdf" target="_blank">Fabrication of Hetero-Structure and Charectirization of HOPG/MoS2</a></li>
+<li><a href="Von_Nueamann___Polarization_Qubit%20(2).pdf" target="_blank">Von Neumann – Polarization Qubit</a></li>
+<li><a href="Personal_Note_Scanning_Probe_Microscopy%20(1).pdf" target="_blank">Scanning Probe Microscopy - Personal Notes</a></li>
 </ul>
-
 </section>
 
 <section id="thoughts" class="card">
-
 <h2>Thoughts</h2>
-
 <ul>
-
 <li>Notes on quantum randomness</li>
 <li>Information flow in complex systems</li>
 <li>Why curiosity struggles inside institutions</li>
-
 </ul>
-
-</section>
-
-<section id="contact" class="card">
-
-<h2>Contact</h2>
-
-<div class="contact-links">
-  <a href="mailto:johnregis30@gmail.com" target="_blank">johnregis30@gmail.com</a>
-  <a href="https://www.linkedin.com/in/john-regis-9b77551b3" target="_blank">LinkedIn</a>
-  <a href="https://github.com/johnregis30-eng" target="_blank">GitHub</a>
-</div>
 </section>
 
 <section id="cv" class="card">
@@ -368,15 +281,22 @@ Scanning Probe Microscopy - Personal Notes
 </ul>
 </section>
 
+<section id="contact" class="card">
+<h2>Contact</h2>
+<div class="contact-links">
+  <a href="mailto:johnregis30@gmail.com" target="_blank">johnregis30@gmail.com</a>
+  <a href="https://www.linkedin.com/in/john-regis-9b77551b3" target="_blank">LinkedIn</a>
+  <a href="https://github.com/johnregis30-eng" target="_blank">GitHub</a>
+</div>
+</section>
+
 </div>
 
 <footer>
-
 © 2026 John
-
 </footer>
-<script>
 
+<script>
 const observer = new IntersectionObserver(entries => {
 entries.forEach(entry => {
 if(entry.isIntersecting){
@@ -388,8 +308,7 @@ entry.target.classList.add("show");
 document.querySelectorAll(".card").forEach(section => {
 observer.observe(section);
 });
-
 </script>
-</body>
 
+</body>
 </html>
