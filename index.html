@@ -16,6 +16,22 @@ href="https://raw.githubusercontent.com/johnregis30-eng/johnregis30-eng.github.i
 <link href="https://fonts.googleapis.com/css2?family=Libre+Baskerville:wght@400;700&family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
 
 <style>
+/* Scrolling animation */
+html{
+scroll-behavior:smooth;
+}
+.card{
+opacity:0;
+transform:translateY(40px);
+transition:all 0.8s ease;
+}
+
+.card.show{
+opacity:1;
+transform:translateY(0);
+}  
+
+  
 /* GENERAL */  
 body{
 margin:0;
@@ -47,20 +63,7 @@ opacity:0.09;
 pointer-events:none;
 z-index:-1;
   
-/* Scrolling animation */
-html{
-scroll-behavior:smooth;
-}
-.card{
-opacity:0;
-transform:translateY(40px);
-transition:all 0.8s ease;
-}
 
-.card.show{
-opacity:1;
-transform:translateY(0);
-}  
   
 }
 
