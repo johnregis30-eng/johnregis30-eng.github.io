@@ -301,29 +301,5 @@ Research interests lie in condensed matter physics, focusing on quantum material
 <footer>
 © 2026 John
 </footer>
-
-<!-- Intersection Observer Script for fade-in -->
-<script>
-const observer = new IntersectionObserver(entries => {
-  entries.forEach(entry => {
-    if(entry.isIntersecting){
-      entry.target.classList.add("show");
-    }
-  });
-});
-
-document.querySelectorAll(".card").forEach(section => {
-  observer.observe(section);
-});
-</script>
-
-<!-- Always go back to portfolio on browser back -->
-<script>
-history.pushState(null, null, location.href);
-window.onpopstate = function() {
-    window.location.href = "index.html";
-};
-</script>
-
 </body>
 </html>
