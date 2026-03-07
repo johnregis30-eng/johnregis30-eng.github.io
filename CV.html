@@ -1,4 +1,323 @@
-<!DOCTYPE html>
+<!DOCTYPE html><!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>John Regis | CV</title>
+<link rel="icon" type="image/jpeg" href="https://raw.githubusercontent.com/johnregis30-eng/johnregis30-eng.github.io/main/Red_Fox_5.jpg">
+<link href="https://fonts.googleapis.com/css2?family=Libre+Baskerville:wght@400;700&family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
+<style>
+/* FADE-IN ANIMATION */
+.card{
+  opacity: 0;
+  transform: translateY(40px);
+  transition: all 0.8s ease;
+}
+.card.show{
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* GENERAL STYLES */
+body{
+    margin:0;
+    font-family:"Inter",sans-serif;
+    background:#f4e9dc;
+    color:#2b2b2b;
+    line-height:1.7;
+}
+html { scroll-behavior: smooth; }
+
+/* HEADER */
+header{
+    background:linear-gradient(135deg,#2b1b16,#4a2416);
+    color:white;
+    padding:3rem 2rem;
+    text-align:center;
+}
+header h1{
+    font-family:"Libre Baskerville",serif;
+    font-size:40px;
+    letter-spacing:2px;
+    margin-bottom:5px;
+}
+header p{ opacity:.9; margin:0; }
+.hero-quote{ margin-top:10px; font-style:italic; color:#f3c7a5; }
+
+/* NAVIGATION */
+nav{
+    display:flex;
+    justify-content:center;
+    gap:2rem;
+    padding:1rem;
+    background:#fff0e5;
+    border-bottom:2px solid #d04a1c;
+}
+nav a{
+    color:#a63b16;
+    text-decoration:none;
+    font-weight:500;
+    letter-spacing:1px;
+    padding-bottom:4px;
+    position:relative;
+}
+nav a::after{
+    content:"";
+    position:absolute;
+    left:0;
+    bottom:0;
+    width:0;
+    height:2px;
+    background:#ff8a3c;
+    transition:width 0.3s ease;
+}
+nav a:hover::after{ width:100%; }
+nav a:hover{ color:#ff8a3c; }
+
+/* CONTAINER */
+.container{
+    max-width:900px;
+    margin:2rem auto;
+    padding:1rem 2rem;
+}
+
+/* SECTIONS */
+.card{
+    padding:1.5rem 1rem;
+    margin-bottom:2rem;
+    border-bottom:1px solid #d9c5b3;
+}
+.card h2{
+    font-family:"Libre Baskerville",serif;
+    color:#a63b16;
+    margin-bottom:0.8rem;
+}
+.card ul{ padding-left:20px; }
+.card li{ margin-bottom:8px; }
+
+/* LINK COLORS */
+a{
+    color:#ff8a3c;
+    text-decoration:none;
+    font-weight:500;
+}
+a:hover{ color:#d04a1c; }
+
+/* FOOTER */
+footer{
+    text-align:center;
+    padding:2rem;
+    margin-top:2rem;
+    font-size:14px;
+    color:#6f4b3a;
+}
+
+/* CV LIST */
+.cv-list { list-style: none; padding-left: 0; }
+.cv-item { display: flex; justify-content: space-between; margin-bottom: 1.5rem; }
+.cv-left { max-width: 75%; }
+.cv-right { text-align: right; font-weight: 500; color: #a63b16; }
+</style>
+</head>
+<body>
+
+<header>
+<h1>John Regis</h1>
+<p>M.Sc. in Quantum Technology, IISER Pune</p>
+<p class="hero-quote">Exploring physics, materials, and the systems that shape our technological future.</p>
+</header>
+
+<nav>
+<a href="#education">Education</a>
+<a href="#research">Research Experience</a>
+<a href="#quantum-lab">Quantum Lab Experience</a>
+<a href="#skills">Skills</a>
+<a href="#workshops">Workshop & Certificate Courses</a>
+<a href="#research-interests">Research Interest</a>
+</nav>
+
+<div class="container">
+
+<section id="education" class="card">
+<h2>Education</h2>
+<ul class="cv-list">
+  <li class="cv-item">
+    <div class="cv-left">
+      <strong>Indian Institute of Science Education and Research (IISER) Pune</strong><br>
+      MSc in Quantum Technology<br>
+      Masters Thesis: STM and STS study of Bulk Tellurium<br>
+      Relevant Coursework: Quantum Devices and Fabrication, Quantum Sensing and Metrology, Physics at the Nanoscale, Quantum Optics, Computational Physics, and Quantum Industry.
+    </div>
+    <div class="cv-right">2024 – Present</div>
+  </li>
+  <li class="cv-item">
+    <div class="cv-left">
+      <strong>Christ College, Irinjalakuda (Autonomous), Kerala</strong><br>
+      BSc in Physics<br>
+      Undergraduate Thesis: Spectral Studies of Samarium – a rare earth metal using Polyvinyl Alcohol as Host Matrix
+    </div>
+    <div class="cv-right">2020 – 2023</div>
+  </li>
+</ul>
+</section>
+
+<section id="research" class="card">
+<h2>Research Experience</h2>
+<ul class="cv-list">
+  <li class="cv-item">
+    <div class="cv-left">
+      <strong>UHV STM/STS Measurement of Tellurium (Ongoing)</strong><br>
+      IISER Pune<br>
+      Thesis Supervisor: Dr. Aparna Deshpande, IISER Pune<br>
+      • Currently performing ultra-high vacuum (UHV) STM imaging of tellurium to investigate surface atomic structure.<br>
+      • Implementing scanning tunneling spectroscopy (STS) measurements to probe the local density of states (LDOS).<br>
+      • Aiming to analyze electronic structure features related to surface reconstruction and spin–orbit coupling effects.
+    </div>
+    <div class="cv-right">Jan – April 2026</div>
+  </li>
+
+  <li class="cv-item">
+    <div class="cv-left">
+      <strong>Mechanical Exfoliation and AFM–Raman Analysis of HOPG</strong><br>
+      Internship Mentor: Dr. Aparna Deshpande, IISER Pune<br>
+      • Performed mechanical exfoliation of HOPG.<br>
+      • Characterized exfoliated flakes using AFM and Raman spectroscopy to estimate layer thickness and assess crystallinity.<br>
+      • Conducted STM measurements under ambient conditions to study surface topography.
+    </div>
+    <div class="cv-right">Summer 2025</div>
+  </li>
+
+  <li class="cv-item">
+    <div class="cv-left">
+      <strong>Dry Transfer Fabrication of HOPG–MoS2 Heterostructures</strong><br>
+      IISER Pune — Semester Project under Dr. Aparna Deshpande<br>
+      • Fabricated van der Waals heterostructures using dry transfer with PDMS stamps.<br>
+      • Aligned and assembled clean interfaces for studying interlayer coupling and charge transfer.
+    </div>
+    <div class="cv-right">Aug – Dec 2025</div>
+  </li>
+
+  <li class="cv-item">
+    <div class="cv-left">
+      <strong>Quantum Random Number Generator using Zener Diodes</strong><br>
+      Project under Prof. Shouvik Dutta, IISER Pune<br>
+      • Built a 4–Zener-diode quantum random number generator exploiting electron tunneling noise.<br>
+      • Integrated with an LCD and I2C module for real-time randomness visualization.
+    </div>
+    <div class="cv-right">Aug – Dec 2024</div>
+  </li>
+</ul>
+</section>
+
+<section id="quantum-lab" class="card">
+<h2>Quantum Lab Experiments</h2>
+<ul class="cv-list">
+  <li class="cv-item">
+    <div class="cv-left">
+      <strong>FPGA-Based UART Protocol and Low Pass Digital Filter Implementation</strong><br>
+      Developing FPGA logic for serial communication and hardware-level low-pass filtering for analogue signal reconstruction.
+    </div>
+    <div class="cv-right">2025</div>
+  </li>
+  
+  <li class="cv-item">
+    <div class="cv-left">
+      <strong>Quantum Key Distribution (BB84) Using Polarization States</strong><br>
+      Experimental realization of BB84 protocol using polarizers and detectors to simulate quantum communication between Alice and Bob, including Eve intrusion modeling.
+    </div>
+    <div class="cv-right">2025</div>
+  </li>
+  
+  <li class="cv-item">
+    <div class="cv-left">
+      <strong>NV-Center-Based Quantum Sensing Setup</strong><br>
+      Designing an experimental configuration for optical detection of magnetic resonance (ODMR) using diamond NV centres to probe nanoscale magnetic fields.
+    </div>
+    <div class="cv-right">2025</div>
+  </li>
+</ul>
+</section>
+
+<section id="skills" class="card">
+<h2>Skills</h2>
+<ul class="cv-list">
+  <li class="cv-item">
+    <div class="cv-left">
+      <strong>Experimental:</strong> Nanofabrication, photolithography, thin-film deposition, 2D material exfoliation, dry transfer, AFM, Room Temperature STM, cryogenic systems handling, Raman spectroscopy.
+    </div>
+    <div class="cv-right"></div>
+  </li>
+  
+  <li class="cv-item">
+    <div class="cv-left">
+      <strong>Software and Tools:</strong> Basic CAD, OriginPro, MATLAB, Python (NumPy, Matplotlib)
+    </div>
+    <div class="cv-right"></div>
+  </li>
+  
+  <li class="cv-item">
+    <div class="cv-left">
+      <strong>Soft Skills:</strong> Scientific writing, documentation, presentation, and collaborative research
+    </div>
+    <div class="cv-right"></div>
+  </li>
+</ul>
+</section>
+
+<section id="workshops" class="card">
+<h2>Workshops & Certificate Courses</h2>
+<ul class="cv-list">
+  <li class="cv-item">
+    <div class="cv-left">
+      <strong>Quantum Workshop on Q-Karyashala 2025, IISc Bengaluru</strong><br>
+      Attended the national-level Q-Karyashala 2025 organized by IISc and QRP to explore advancements in quantum computing and quantum hardware.
+    </div>
+    <div class="cv-right">26–27 June 2025</div>
+  </li>
+
+  <li class="cv-item">
+    <div class="cv-left">
+      <strong>Course on Innovation, Business Models and Entrepreneurship (Elite Certificate)</strong><br>
+      Completed a course covering innovation management, entrepreneurship, business model development, and technology incubation strategies. Earned an Elite Certificate.
+    </div>
+    <div class="cv-right"></div>
+  </li>
+</ul>
+</section>
+
+<section id="research-interests" class="card">
+<h2>Research Interests</h2>
+<p>
+Research interests lie in condensed matter physics, focusing on quantum materials and 2D systems with emergent correlated phases. Interested in UHV STM/STS investigations and nano-device fabrication of engineered van der Waals heterostructures. Interested in moiré superlattices, unconventional superconductivity, and spin–orbit coupling phenomena in low-dimensional materials.
+</p>
+</section>
+
+<p style="text-align:center; margin-top:2rem;">
+  <a href="index.html">← Back to Portfolio</a>
+</p>
+
+</div>
+
+<footer>
+© 2026 John
+</footer>
+
+<!-- Intersection Observer Script for fade-in -->
+<script>
+const observer = new IntersectionObserver(entries => {
+  entries.forEach(entry => {
+    if(entry.isIntersecting){
+      entry.target.classList.add("show");
+    }
+  });
+});
+document.querySelectorAll(".card").forEach(section => {
+  observer.observe(section);
+});
+</script>
+
+</body>
+</html>
 <html lang="en">
 <head>
 <meta charset="UTF-8">
