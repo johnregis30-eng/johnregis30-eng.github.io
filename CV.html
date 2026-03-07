@@ -359,7 +359,15 @@ document.querySelectorAll(".card").forEach(section => {
   observer.observe(section);
 });
 </script>
+<script>
+  // Add a dummy history entry
+  window.history.pushState(null, "", window.location.href);
 
+  // Only trigger on browser back button
+  window.onpopstate = function() {
+      window.location.href = "index.html";
+  };
+</script>
 
 };
 </script>
