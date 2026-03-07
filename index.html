@@ -3,13 +3,15 @@
 
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 <title>John | Portfolio</title>
 
 <link href="https://fonts.googleapis.com/css2?family=Libre+Baskerville:wght@400;700&family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
 
 <style>
+
+/* GENERAL */
 
 body{
 margin:0;
@@ -24,13 +26,15 @@ line-height:1.7;
 body::before{
 content:"";
 position:fixed;
-top:120px;
-right:-150px;
-width:800px;
-height:800px;
+
+top:50%;
+right:-120px;
+transform:translateY(-50%);
+
+width:850px;
+height:850px;
 
 background-image:url("https://raw.githubusercontent.com/johnregis30-eng/johnregis30-eng.github.io/main/Red_Fox_2.jpg");
-
 background-size:contain;
 background-repeat:no-repeat;
 
@@ -66,18 +70,16 @@ background:linear-gradient(90deg,#d04a1c,#ff8a3c);
 width:170px;
 margin-bottom:20px;
 border-radius:6px;
-opacity:.95;
 
-filter: drop-shadow(0 8px 10px rgba(0,0,0,0.25));
-
-transition:transform .4s ease;
+filter:drop-shadow(0 8px 10px rgba(0,0,0,0.25));
+transition:transform .35s ease;
 }
 
 .fox-logo:hover{
 transform:scale(1.05);
 }
 
-/* TITLE */
+/* HEADER TEXT */
 
 header h1{
 font-family:"Libre Baskerville",serif;
@@ -96,7 +98,7 @@ font-style:italic;
 color:#f3c7a5;
 }
 
-/* NAV */
+/* NAVIGATION */
 
 nav{
 display:flex;
@@ -117,7 +119,7 @@ nav a:hover{
 color:#ff8a3c;
 }
 
-/* CONTENT */
+/* CONTENT AREA */
 
 .container{
 max-width:820px;
@@ -128,7 +130,6 @@ padding:1rem;
 /* SECTIONS */
 
 .card{
-background:transparent;
 padding:1rem 0;
 margin-bottom:3rem;
 border-bottom:1px solid #d9c5b3;
@@ -145,7 +146,6 @@ a{
 color:#d04a1c;
 text-decoration:none;
 font-weight:500;
-transition:.2s;
 }
 
 a:hover{
@@ -225,8 +225,8 @@ political structures, and philosophy of science.
 </p>
 
 <p>
-This website is a small notebook of ideas,
-projects, and experiments.
+This site is a small notebook of ideas, projects,
+and experiments.
 </p>
 
 </section>
@@ -276,4 +276,5 @@ projects, and experiments.
 </footer>
 
 </body>
+
 </html>
