@@ -1,147 +1,249 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>John Regis</title>
-  <style>
-    body {
-      margin: 0;
-      font-family: Arial, sans-serif;
-      background: #f7f7f7;
-      color: #222;
-    }
-    header {
-      background: #1a1a1a;
-      color: #fff;
-      padding: 2rem;
-      text-align: center;
-    }
-    nav {
-      display: flex;
-      justify-content: center;
-      gap: 2rem;
-      padding: 1rem;
-      background: #333;
-    }
-    nav a {
-      color: #fff;
-      text-decoration: none;
-      font-weight: bold;
-    }
-    .container {
-      max-width: 900px;
-      margin: 2rem auto;
-      padding: 1rem;
-    }
-    .card {
-      background: #fff;
-      padding: 1.5rem;
-      margin-bottom: 1.5rem;
-      border-radius: 10px;
-      box-shadow: 0 3px 10px rgba(0,0,0,0.1);
-    }
-    footer {
-      text-align: center;
-      padding: 2rem;
-      margin-top: 3rem;
-      background: #1a1a1a;
-      color: #fff;
-    }
-    a {
-  color: #000;             /* black text */
-  text-decoration: none;   /* remove underline */
-  font-weight: bold;
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>John Regis</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Libre+Baskerville:wght@400;700&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
+
+<style>
+
+body{
+margin:0;
+font-family:"Inter",sans-serif;
+background:#fafafa;
+color:#111;
+line-height:1.7;
 }
 
-a:hover {
-  color: #555;             /* grey when hovered */
+/* HERO */
+
+header{
+background:#111;
+color:white;
+padding:5rem 2rem;
+text-align:center;
 }
 
-  </style>
+header h1{
+font-family:"Libre Baskerville",serif;
+font-size:48px;
+letter-spacing:3px;
+margin-bottom:10px;
+}
+
+header p{
+font-size:18px;
+color:#bbb;
+}
+
+.hero-quote{
+margin-top:15px;
+font-style:italic;
+color:#aaa;
+}
+
+/* NAV */
+
+nav{
+display:flex;
+justify-content:center;
+gap:2rem;
+padding:1.5rem;
+}
+
+nav a{
+color:#444;
+text-decoration:none;
+font-weight:500;
+letter-spacing:1px;
+transition:all 0.2s;
+}
+
+nav a:hover{
+color:black;
+}
+
+/* CONTENT */
+
+.container{
+max-width:760px;
+margin:4rem auto;
+padding:1rem;
+}
+
+/* CLEAN SECTIONS */
+
+.card{
+background:transparent;
+padding:1rem 0;
+margin-bottom:3rem;
+border-bottom:1px solid #e6e6e6;
+}
+
+.card h2{
+font-family:"Libre Baskerville",serif;
+font-size:28px;
+margin-bottom:1rem;
+}
+
+/* LINKS */
+
+a{
+color:#111;
+text-decoration:none;
+font-weight:500;
+}
+
+a:hover{
+text-decoration:underline;
+}
+
+/* LIST */
+
+ul{
+padding-left:20px;
+}
+
+li{
+margin-bottom:10px;
+}
+
+/* CONTACT */
+
+#contact{
+text-align:center;
+}
+
+#phone-number{
+display:none;
+opacity:0;
+margin-left:10px;
+color:#777;
+transition:opacity .5s;
+}
+
+/* FOOTER */
+
+footer{
+text-align:center;
+padding:3rem;
+margin-top:4rem;
+font-size:14px;
+color:#666;
+}
+
+</style>
 </head>
+
 <body>
 
-  <header>
-    <h1>JOHN REGIS</h1>
-    <p>MS Quantum Tech | 2D Materials | Philosophy</p>
-  </header>
+<header>
+<h1>JOHN REGIS</h1>
+<p>Quantum Technology · 2D Materials · Philosophy</p>
+<p class="hero-quote">Exploring matter, systems, and ideas.</p>
+</header>
 
-  <nav>
-    <a href="#about">About</a>
-    <a href="#projects">Projects</a>
-    <a href="#contact">Contact</a>
-  </nav>
+<nav>
+<a href="#about">About</a>
+<a href="#projects">Projects</a>
+<a href="#contact">Contact</a>
+</nav>
 
-  <div class="container">
+<div class="container">
 
-    <section id="about" class="card">
-      <h2>About Me</h2>
-      <p>I am an MSc Quantum Technology student at IISER Pune, working in condensed matter physics under Dr. Aparna Deshpande. My interests span 2D quantum materials, scanning probe microscopy (STM/AFM), and electronic transport studies including precision IV characterization.</p>
-    </section>
+<section id="about" class="card">
+<h2>About</h2>
 
-  <section id="projects" class="card">
-  <h2>Projects</h2>
-  <ul>
-    <li>
-      <a href="https://github.com/johnregis30-eng/Silly_Physics/blob/main/Summer_Internship_Report_25072025.pdf" target="_blank">
-        AFM/STM Summer Internship Report
-      </a>
-    </li>
+<p>
+I am an MSc Quantum Technology student at IISER Pune working in condensed matter physics under Dr. Aparna Deshpande.
+My interests span 2D quantum materials, scanning probe microscopy (STM/AFM), and electronic transport studies
+including precision IV characterization.
+</p>
 
-    <li>
-      <a href="https://github.com/johnregis30-eng/Silly_Physics/blob/main/RandomWalk_of_Knight.pdf" target="_blank">
-        Random Walk of a Knight
-      </a>
-    </li>
-
-    <li>
-      <a href="https://github.com/johnregis30-eng/Silly_Physics/blob/main/Random_Walk_and_Return%20(2).pdf" target="_blank">
-        Random Walk & Return Analysis
-      </a>
-    </li>
-
-    <li>
-      <a href="https://github.com/johnregis30-eng/Silly_Physics/blob/main/Quantum_Random_Walk_of_the_Knight%20(2).pdf" target="_blank">
-        Quantum Random Walk of the Knight
-      </a>
-    </li>
-  </ul>
-</section
-
-<section id="contact" class="card" style="color:#555; text-align:center;">
-  <h2 style="color:#444;">Contact</h2>
-  <div style="display:flex; justify-content:center; gap:1.5rem; align-items:center; position:relative;">
-    <a href="mailto:john.regis@students.iiserpune.ac.in" style="color:#555; text-decoration:none;">Gmail</a>
-    <a href="https://www.linkedin.com/in/johnregis" target="_blank" style="color:#555; text-decoration:none;">LinkedIn</a>
-    <a href="https://github.com/johnregis30-eng" target="_blank" style="color:#555; text-decoration:none;">GitHub</a>
-    <span id="phone-link" style="color:#555; text-decoration:none; cursor:pointer;">Phone</span>
-    <span id="phone-number" style="display:none; color:#888; margin-left:10px; transition: opacity 0.5s;">75710240487</span>
-  </div>
-  <script>
-    const phoneLink = document.getElementById('phone-link');
-    const phoneNumber = document.getElementById('phone-number');
-
-    phoneLink.addEventListener('click', () => {
-      if(phoneNumber.style.display === 'none') {
-        phoneNumber.style.display = 'inline';
-        setTimeout(() => { phoneNumber.style.opacity = '1'; }, 10);
-      } else {
-        phoneNumber.style.opacity = '0';
-        setTimeout(() => { phoneNumber.style.display = 'none'; }, 500);
-      }
-    });
-  </script>
 </section>
 
+<section id="projects" class="card">
 
-  </div>
+<h2>Projects</h2>
 
-  <footer>
-    © 2025 John — All Rights Reserved
-  </footer>
+<ul>
+
+<li>
+<a href="https://github.com/johnregis30-eng/Silly_Physics/blob/main/Summer_Internship_Report_25072025.pdf" target="_blank">
+AFM / STM Summer Internship Report
+</a>
+</li>
+
+<li>
+<a href="https://github.com/johnregis30-eng/Silly_Physics/blob/main/RandomWalk_of_Knight.pdf" target="_blank">
+Random Walk of a Knight
+</a>
+</li>
+
+<li>
+<a href="https://github.com/johnregis30-eng/Silly_Physics/blob/main/Random_Walk_and_Return%20(2).pdf" target="_blank">
+Random Walk & Return Analysis
+</a>
+</li>
+
+<li>
+<a href="https://github.com/johnregis30-eng/Silly_Physics/blob/main/Quantum_Random_Walk_of_the_Knight%20(2).pdf" target="_blank">
+Quantum Random Walk of the Knight
+</a>
+</li>
+
+</ul>
+
+</section>
+
+<section id="contact" class="card">
+
+<h2>Contact</h2>
+
+<div style="display:flex;justify-content:center;gap:1.5rem;align-items:center;">
+
+<a href="mailto:john.regis@students.iiserpune.ac.in">Email</a>
+
+<a href="https://www.linkedin.com/in/johnregis" target="_blank">LinkedIn</a>
+
+<a href="https://github.com/johnregis30-eng" target="_blank">GitHub</a>
+
+<span id="phone-link" style="cursor:pointer;">Phone</span>
+
+<span id="phone-number">75710240487</span>
+
+</div>
+
+</section>
+
+</div>
+
+<footer>
+© 2025 John — All Rights Reserved
+</footer>
+
+<script>
+
+const phoneLink = document.getElementById('phone-link');
+const phoneNumber = document.getElementById('phone-number');
+
+phoneLink.addEventListener('click', () => {
+
+if(phoneNumber.style.display === 'none'){
+phoneNumber.style.display='inline';
+setTimeout(()=>phoneNumber.style.opacity='1',10);
+}
+
+else{
+phoneNumber.style.opacity='0';
+setTimeout(()=>phoneNumber.style.display='none',500);
+}
+
+});
+
+</script>
 
 </body>
 </html>
-
-
