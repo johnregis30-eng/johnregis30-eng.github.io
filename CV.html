@@ -7,19 +7,115 @@
 <link rel="icon" type="image/jpeg" href="https://raw.githubusercontent.com/johnregis30-eng/johnregis30-eng.github.io/main/Red_Fox_5.jpg">
 <link href="https://fonts.googleapis.com/css2?family=Libre+Baskerville:wght@400;700&family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
 <style>
-/* Copy the same styles from index.html for consistency */
+body{
+  margin:0;
+  font-family:"Inter", sans-serif;
+  background:#f4e9dc; /* same as main page */
+  color:#2b2b2b;
+  line-height:1.6;
+}
+
+/* HEADER */
+header{
+  background:linear-gradient(135deg,#2b1b16,#4a2416);
+  color:white;
+  padding:3rem 1rem;
+  text-align:center;
+}
+
+header h1{
+  font-family:"Libre Baskerville", serif;
+  font-size:36px;
+  margin-bottom:0.5rem;
+}
+
+header p{
+  opacity:0.9;
+}
+
+.hero-quote{
+  font-style:italic;
+  color:#f3c7a5;
+  margin-top:0.5rem;
+}
+
+/* NAVIGATION */
+nav{
+  display:flex;
+  justify-content:center;
+  gap:1.5rem;
+  background:#fff;
+  padding:1rem 0;
+  border-bottom:1px solid #d9c5b3;
+}
+
+nav a{
+  text-decoration:none;
+  color:#a63b16;
+  font-weight:500;
+}
+
+nav a:hover{
+  color:#ff8a3c;
+}
+
+/* CONTAINER */
+.container{
+  max-width:800px;
+  margin:2rem auto;
+  padding:1.5rem 2rem;
+  background:#fff;
+  border-radius:6px;
+  box-shadow:0 4px 8px rgba(0,0,0,0.05);
+}
+
+/* HEADINGS */
+h2{
+  font-family:"Libre Baskerville", serif;
+  color:#a63b16;
+  margin-top:0;
+}
+
+/* LINKS */
+a{
+  color:#d04a1c;
+  text-decoration:none;
+  font-weight:500;
+}
+
+a:hover{
+  color:#ff8a3c;
+}
+
+ul{
+  padding-left:20px;
+}
+
+li{
+  margin-bottom:0.8rem;
+}
+
+/* FOOTER */
+footer{
+  text-align:center;
+  padding:2rem;
+  margin-top:2rem;
+  font-size:14px;
+  color:#6f4b3a;
+  background:#f4e9dc;
+}
 </style>
 </head>
+
 <body>
 <header>
-<img src="https://raw.githubusercontent.com/johnregis30-eng/johnregis30-eng.github.io/main/Red_Fox_1.jpg" class="fox-logo" alt="Fox Logo">
 <h1>John Regis</h1>
-<p>Condensed Matter physics • Quantum Technology • 2D materials </p>
+<p>M.Sc. Quantum Technology, IISER Pune</p>
 <p class="hero-quote">Exploring physics, materials, and the systems that shape our technological future.</p>
 </header>
 
 <nav>
-<a href="index.html#about">About</a>
+<a href="index.html#about">Portfolio</a>
 <a href="index.html#projects">Projects</a>
 <a href="index.html#thoughts">Thoughts</a>
 <a href="CV.html">CV</a>
@@ -27,7 +123,6 @@
 </nav>
 
 <div class="container">
-<section class="card">
 <h2>Curriculum Vitae</h2>
 <p>You can download my full CV <a href="John_Regis_CV.pdf" target="_blank">here</a>.</p>
 <ul>
@@ -39,7 +134,6 @@
 <li><strong>Publications:</strong> Add publications if any</li>
 <li><strong>Contact:</strong> johnregis30@gmail.com | <a href="https://www.linkedin.com/in/john-regis-9b77551b3" target="_blank">LinkedIn</a> | <a href="https://github.com/johnregis30-eng" target="_blank">GitHub</a></li>
 </ul>
-</section>
 </div>
 
 <footer>
