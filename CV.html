@@ -117,6 +117,21 @@ footer{
 .cv-item { display: flex; justify-content: space-between; margin-bottom: 1.5rem; }
 .cv-left { max-width: 75%; }
 .cv-right { text-align: right; font-weight: 500; color: #a63b16; }
+  .cv-download{
+display:inline-block;
+background:#d04a1c;
+color:white;
+padding:10px 18px;
+border-radius:6px;
+font-weight:600;
+letter-spacing:0.5px;
+transition:all 0.3s ease;
+}
+
+.cv-download:hover{
+background:#ff8a3c;
+transform:translateY(-2px);
+}
 </style>
 </head>
 <body>
@@ -126,7 +141,11 @@ footer{
 <p>M.Sc. in Quantum Technology, IISER Pune</p>
 <p class="hero-quote">Exploring physics, materials, and the systems that shape our technological future.</p>
 </header>
-
+<div style="text-align:center; margin-top:20px;">
+<a href="John_Regis_CV.pdf" download class="cv-download">
+⬇ Download Full CV (PDF)
+</a>
+</div>
 <nav>
 <a href="#education">Education</a>
 <a href="#research">Research Experience</a>
