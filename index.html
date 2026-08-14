@@ -583,63 +583,79 @@ observer.observe(section);
 </script>
 <script>
 
-/* =========================
-   MAGNETIC COMPASS
-========================= */
-
 const needle = document.getElementById("needle");
 const headingDisplay = document.getElementById("heading");
+const compassButton = document.getElementById("compassButton");
 
-let currentHeading = 0;
+function handleOrientation(event) {
 
-function updateCompass(heading){
+    let heading = null;
 
-    if (heading == null || isNaN(heading)) return;
+    // iPhone / iPad
+    if (event.webkitCompassHeading !== undefined) {
+        heading = event.webkitCompassHeading;
+    }
 
-    currentHeading = heading;
+    // Android / other browsers
+    else if (event.alpha !== null) {
+        heading = 360 - event.alpha;
+    }
 
-    /*
-       The needle points toward magnetic north.
-       Rotate the visual needle opposite to the device heading.
-    */
+    if (heading !== null && !isNaN(heading)) {
 
-    needle.style.transform =
-        `translate(-50%, -50%) rotate(${-heading}deg)`;
+        heading = (heading + 360) % 360;
 
-    headingDisplay.textContent =
-        `${Math.round(heading)}°`;
+        needle.style.transform =
+            `translate(-50%, -50%) rotate(${-heading}deg)`;
+
+        headingDisplay.textContent =
+            Math.round(heading) + "°";
+
+        console.log("Compass heading:", heading);
+    }
 }
 
 
-/* iPhone / iPad */
+async function startCompass() {
 
-async function requestCompassPermission(){
-
+    // iPhone / iPad
     if (
         typeof DeviceOrientationEvent !== "undefined" &&
         typeof DeviceOrientationEvent.requestPermission === "function"
-    ){
+    ) {
 
-        try{
+        try {
 
             const permission =
                 await DeviceOrientationEvent.requestPermission();
 
-            if(permission === "granted"){
+            if (permission === "granted") {
+
                 window.addEventListener(
                     "deviceorientation",
                     handleOrientation,
                     true
                 );
+
+                compassButton.textContent = "Compass Active";
+
+            } else {
+
+                compassButton.textContent = "Permission Denied";
+
             }
 
-        }catch(error){
+        } catch (error) {
 
-            console.log("Compass permission denied.");
+            console.log(error);
+            compassButton.textContent = "Error";
 
         }
 
-    }else{
+    }
+
+    // Android
+    else {
 
         window.addEventListener(
             "deviceorientationabsolute",
@@ -652,45 +668,18 @@ async function requestCompassPermission(){
             handleOrientation,
             true
         );
+
+        compassButton.textContent = "Compass Active";
     }
 }
 
 
-/* Device orientation */
-
-function handleOrientation(event){
-
-    let heading;
-
-    if(event.webkitCompassHeading){
-
-        // iOS
-        heading = event.webkitCompassHeading;
-
-    }else if(event.absolute && event.alpha != null){
-
-        // Android / other browsers
-        heading = 360 - event.alpha;
-
-    }else{
-
-        return;
-    }
-
-    updateCompass(heading);
-}
-
-
-/* Start compass when page loads */
-
-window.addEventListener("load", () => {
-
-    requestCompassPermission();
-
-});
+compassButton.addEventListener(
+    "click",
+    startCompass
+);
 
 </script>
-
 <!-- MAGNETIC COMPASS -->
 <div class="compass" id="compass">
     <div class="compass-title">MAGNETIC FIELD</div>
