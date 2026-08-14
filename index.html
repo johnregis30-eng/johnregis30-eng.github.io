@@ -198,8 +198,21 @@ border-bottom:1px solid #d9c5b3;
 }
 
 .card h2{
-font-family:"Libre Baskerville",serif;
-color:#a63b16;
+    font-family:"Libre Baskerville",serif;
+    font-size:32px;
+    color:#a63b16;
+    margin-bottom:2rem;
+    letter-spacing:1px;
+    position:relative;
+}
+
+.card h2::after{
+    content:"";
+    display:block;
+    width:60px;
+    height:3px;
+    background:#ff8a3c;
+    margin-top:10px;
 }
 
 /* LINKS */
