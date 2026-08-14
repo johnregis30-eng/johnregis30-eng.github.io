@@ -15,6 +15,170 @@ href="https://raw.githubusercontent.com/johnregis30-eng/johnregis30-eng.github.i
 <link href="https://fonts.googleapis.com/css2?family=Libre+Baskerville:wght@400;700&family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
 
 <style> 
+/* =========================
+   MAGNETIC COMPASS
+========================= */
+
+.compass{
+    position:fixed;
+    right:30px;
+    bottom:30px;
+    width:145px;
+    text-align:center;
+    z-index:10;
+    font-family:"Inter",sans-serif;
+    color:#6b321f;
+}
+
+.compass-title{
+    font-size:9px;
+    letter-spacing:2px;
+    margin-bottom:8px;
+    opacity:.7;
+}
+
+.compass-dial{
+    position:relative;
+    width:120px;
+    height:120px;
+    margin:auto;
+
+    border:2px solid #8b5e3c;
+    border-radius:50%;
+
+    background:
+        radial-gradient(circle,
+        #f4e9dc 0%,
+        #ead8c6 70%,
+        #d9c5b3 100%);
+
+    box-shadow:
+        0 5px 15px rgba(43,27,22,.15),
+        inset 0 0 0 5px rgba(255,255,255,.25);
+}
+
+/* Compass directions */
+
+.direction{
+    position:absolute;
+    font-family:"Libre Baskerville",serif;
+    font-weight:bold;
+    font-size:13px;
+    transform:translate(-50%,-50%);
+}
+
+.north{
+    top:10px;
+    left:50%;
+    color:#a63b16;
+}
+
+.south{
+    bottom:-4px;
+    left:50%;
+}
+
+.east{
+    right:1px;
+    top:50%;
+}
+
+.west{
+    left:1px;
+    top:50%;
+}
+
+/* Small tick marks */
+
+.compass-dial::before{
+    content:"";
+    position:absolute;
+    inset:14px;
+    border:1px dashed #a9795e;
+    border-radius:50%;
+    opacity:.6;
+}
+
+/* Needle */
+
+.needle{
+    position:absolute;
+    left:50%;
+    top:50%;
+    width:4px;
+    height:82px;
+    transform:translate(-50%,-50%) rotate(0deg);
+    transform-origin:center center;
+    transition:transform .25s ease-out;
+    z-index:3;
+}
+
+.needle-north{
+    position:absolute;
+    top:0;
+    left:-5px;
+
+    width:0;
+    height:0;
+
+    border-left:7px solid transparent;
+    border-right:7px solid transparent;
+    border-bottom:35px solid #a63b16;
+}
+
+.needle-south{
+    position:absolute;
+    bottom:0;
+    left:-5px;
+
+    width:0;
+    height:0;
+
+    border-left:7px solid transparent;
+    border-right:7px solid transparent;
+    border-top:35px solid #6f4b3a;
+}
+
+.compass-center{
+    position:absolute;
+    width:11px;
+    height:11px;
+
+    top:50%;
+    left:50%;
+
+    transform:translate(-50%,-50%);
+
+    border-radius:50%;
+    background:#6b321f;
+
+    border:2px solid #f4e9dc;
+    z-index:5;
+}
+
+/* Reading */
+
+.compass-reading{
+    margin-top:7px;
+    font-size:11px;
+    letter-spacing:1px;
+    opacity:.8;
+}
+
+/* Mobile */
+
+@media(max-width:768px){
+
+    .compass{
+        right:15px;
+        bottom:15px;
+        transform:scale(.85);
+        transform-origin:bottom right;
+    }
+
+}
+
+    
 /* PROJECT ENTRIES */
 
 .project-item{
@@ -414,7 +578,140 @@ entry.target.classList.add("show");
 document.querySelectorAll(".card").forEach(section => {
 observer.observe(section);
 });
+
+
+</script>
+<script>
+
+/* =========================
+   MAGNETIC COMPASS
+========================= */
+
+const needle = document.getElementById("needle");
+const headingDisplay = document.getElementById("heading");
+
+let currentHeading = 0;
+
+function updateCompass(heading){
+
+    if (heading == null || isNaN(heading)) return;
+
+    currentHeading = heading;
+
+    /*
+       The needle points toward magnetic north.
+       Rotate the visual needle opposite to the device heading.
+    */
+
+    needle.style.transform =
+        `translate(-50%, -50%) rotate(${-heading}deg)`;
+
+    headingDisplay.textContent =
+        `${Math.round(heading)}°`;
+}
+
+
+/* iPhone / iPad */
+
+async function requestCompassPermission(){
+
+    if (
+        typeof DeviceOrientationEvent !== "undefined" &&
+        typeof DeviceOrientationEvent.requestPermission === "function"
+    ){
+
+        try{
+
+            const permission =
+                await DeviceOrientationEvent.requestPermission();
+
+            if(permission === "granted"){
+                window.addEventListener(
+                    "deviceorientation",
+                    handleOrientation,
+                    true
+                );
+            }
+
+        }catch(error){
+
+            console.log("Compass permission denied.");
+
+        }
+
+    }else{
+
+        window.addEventListener(
+            "deviceorientationabsolute",
+            handleOrientation,
+            true
+        );
+
+        window.addEventListener(
+            "deviceorientation",
+            handleOrientation,
+            true
+        );
+    }
+}
+
+
+/* Device orientation */
+
+function handleOrientation(event){
+
+    let heading;
+
+    if(event.webkitCompassHeading){
+
+        // iOS
+        heading = event.webkitCompassHeading;
+
+    }else if(event.absolute && event.alpha != null){
+
+        // Android / other browsers
+        heading = 360 - event.alpha;
+
+    }else{
+
+        return;
+    }
+
+    updateCompass(heading);
+}
+
+
+/* Start compass when page loads */
+
+window.addEventListener("load", () => {
+
+    requestCompassPermission();
+
+});
+
 </script>
 
+<!-- MAGNETIC COMPASS -->
+<div class="compass" id="compass">
+    <div class="compass-title">MAGNETIC FIELD</div>
+
+    <div class="compass-dial">
+        <div class="direction north">N</div>
+        <div class="direction east">E</div>
+        <div class="direction south">S</div>
+        <div class="direction west">W</div>
+
+        <div class="needle" id="needle">
+            <div class="needle-north"></div>
+            <div class="needle-south"></div>
+        </div>
+
+        <div class="compass-center"></div>
+    </div>
+
+    <div class="compass-reading">
+        <span id="heading">--°</span>
+    </div>
+</div>
 </body>
 </html>
