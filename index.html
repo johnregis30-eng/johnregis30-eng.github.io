@@ -609,11 +609,113 @@ const needle = document.getElementById("needle");
 const headingDisplay = document.getElementById("heading");
 const compass = document.getElementById("compass");
 
+// =====================================
+// TARGET: IIT ROORKEE
+// =====================================
+const targetLat = 29.8667;
+const targetLon = 77.898;
+
 let compassStarted = false;
+let currentHeading = null;
+let currentPosition = null;
 
+
+// =====================================
+// CALCULATE BEARING
+// =====================================
+function calculateBearing(lat1, lon1, lat2, lon2) {
+
+    const φ1 = lat1 * Math.PI / 180;
+    const φ2 = lat2 * Math.PI / 180;
+    const Δλ = (lon2 - lon1) * Math.PI / 180;
+
+    const y = Math.sin(Δλ) * Math.cos(φ2);
+
+    const x =
+        Math.cos(φ1) * Math.sin(φ2) -
+        Math.sin(φ1) * Math.cos(φ2) * Math.cos(Δλ);
+
+    let bearing = Math.atan2(y, x) * 180 / Math.PI;
+
+    return (bearing + 360) % 360;
+}
+
+
+// =====================================
+// CALCULATE DISTANCE
+// =====================================
+function calculateDistance(lat1, lon1, lat2, lon2) {
+
+    const R = 6371; // km
+
+    const φ1 = lat1 * Math.PI / 180;
+    const φ2 = lat2 * Math.PI / 180;
+
+    const Δφ = (lat2 - lat1) * Math.PI / 180;
+    const Δλ = (lon2 - lon1) * Math.PI / 180;
+
+    const a =
+        Math.sin(Δφ / 2) ** 2 +
+        Math.cos(φ1) *
+        Math.cos(φ2) *
+        Math.sin(Δλ / 2) ** 2;
+
+    const c = 2 * Math.atan2(
+        Math.sqrt(a),
+        Math.sqrt(1 - a)
+    );
+
+    return R * c;
+}
+
+
+// =====================================
+// UPDATE ARROW
+// =====================================
+function updateCompass() {
+
+    if (currentHeading === null || currentPosition === null) {
+        return;
+    }
+
+    const targetBearing = calculateBearing(
+        currentPosition.latitude,
+        currentPosition.longitude,
+        targetLat,
+        targetLon
+    );
+
+    // Direction relative to the way the phone is facing
+    let relativeAngle =
+        targetBearing - currentHeading;
+
+    relativeAngle =
+        ((relativeAngle + 540) % 360) - 180;
+
+    needle.style.transform =
+        `translate(-50%, -50%) rotate(${relativeAngle}deg)`;
+
+    const distance = calculateDistance(
+        currentPosition.latitude,
+        currentPosition.longitude,
+        targetLat,
+        targetLon
+    );
+
+    headingDisplay.textContent =
+        `${Math.round(targetBearing)}° · ${distance.toFixed(1)} km`;
+
+    console.log("Your position:", currentPosition);
+    console.log("Target bearing:", targetBearing);
+    console.log("Phone heading:", currentHeading);
+    console.log("Relative direction:", relativeAngle);
+}
+
+
+// =====================================
+// PHONE ORIENTATION
+// =====================================
 function handleOrientation(event) {
-
-    console.log("ORIENTATION EVENT:", event);
 
     let heading = null;
 
@@ -622,6 +724,7 @@ function handleOrientation(event) {
         typeof event.webkitCompassHeading === "number" &&
         !isNaN(event.webkitCompassHeading)
     ) {
+
         heading = event.webkitCompassHeading;
     }
 
@@ -630,35 +733,55 @@ function handleOrientation(event) {
         typeof event.alpha === "number" &&
         !isNaN(event.alpha)
     ) {
+
         heading = 360 - event.alpha;
     }
 
     if (heading !== null) {
 
-        heading = (heading + 360) % 360;
+        currentHeading =
+            (heading + 360) % 360;
 
-        needle.style.transform =
-            `translate(-50%, -50%) rotate(${-heading}deg)`;
-
-        headingDisplay.textContent =
-            Math.round(heading) + "°";
-
-        console.log("HEADING:", heading);
+        updateCompass();
 
     } else {
 
-        headingDisplay.textContent = "Sensor unavailable";
+        headingDisplay.textContent =
+            "Orientation unavailable";
     }
 }
 
 
+// =====================================
+// YOUR GPS LOCATION
+// =====================================
+function handlePosition(position) {
+
+    currentPosition = {
+        latitude: position.coords.latitude,
+        longitude: position.coords.longitude
+    };
+
+    console.log(
+        "GPS:",
+        currentPosition.latitude,
+        currentPosition.longitude
+    );
+
+    updateCompass();
+}
+
+
+// =====================================
+// START COMPASS
+// =====================================
 async function startCompass() {
 
     if (compassStarted) return;
 
-    console.log("Starting compass...");
+    console.log("Starting IIT Roorkee compass...");
 
-    // iPhone / iPad
+    // iPhone / iPad permission
     if (
         typeof DeviceOrientationEvent !== "undefined" &&
         typeof DeviceOrientationEvent.requestPermission === "function"
@@ -673,19 +796,25 @@ async function startCompass() {
 
             if (permission !== "granted") {
 
-                headingDisplay.textContent = "Permission denied";
+                headingDisplay.textContent =
+                    "Permission denied";
+
                 return;
             }
 
         } catch (error) {
 
-            console.error("Permission error:", error);
-            headingDisplay.textContent = "Permission error";
+            console.error(error);
+
+            headingDisplay.textContent =
+                "Permission error";
+
             return;
         }
     }
 
-    // Start listening
+
+    // Start orientation sensors
     window.addEventListener(
         "deviceorientation",
         handleOrientation,
@@ -698,15 +827,52 @@ async function startCompass() {
         true
     );
 
+
+    // Start GPS
+    if ("geolocation" in navigator) {
+
+        navigator.geolocation.watchPosition(
+            handlePosition,
+            function(error) {
+
+                console.error("GPS error:", error);
+
+                headingDisplay.textContent =
+                    "GPS unavailable";
+
+            },
+            {
+                enableHighAccuracy: true,
+                maximumAge: 1000,
+                timeout: 10000
+            }
+        );
+
+    } else {
+
+        headingDisplay.textContent =
+            "GPS unavailable";
+
+        return;
+    }
+
+
     compassStarted = true;
 
-    headingDisplay.textContent = "Move phone";
+    headingDisplay.textContent =
+        "Finding IIT Roorkee...";
 
-    console.log("Compass listener started.");
+    console.log("Compass started.");
 }
 
 
-compass.addEventListener("click", startCompass);
+// =====================================
+// CLICK COMPASS TO START
+// =====================================
+compass.addEventListener(
+    "click",
+    startCompass
+);
 </script>
 </body>
 </html>
