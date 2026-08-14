@@ -582,43 +582,87 @@ observer.observe(section);
 
 </script>
 <script>
-
 const needle = document.getElementById("needle");
 const headingDisplay = document.getElementById("heading");
-const compassButton = document.getElementById("compassButton");
+const compass = document.getElementById("compass");
+
+let compassStarted = false;
+
+
+/* =========================
+   HANDLE DEVICE ORIENTATION
+========================= */
 
 function handleOrientation(event) {
 
     let heading = null;
 
-    // iPhone / iPad
+    /*
+     * iPhone / iPad
+     * Apple provides the actual compass heading.
+     */
     if (event.webkitCompassHeading !== undefined) {
+
         heading = event.webkitCompassHeading;
+
     }
 
-    // Android / other browsers
-    else if (event.alpha !== null) {
+    /*
+     * Android
+     *
+     * When absolute orientation is available,
+     * alpha can be used as the compass direction.
+     */
+    else if (event.absolute === true && event.alpha !== null) {
+
         heading = 360 - event.alpha;
+
     }
+
+    /*
+     * Fallback
+     */
+    else if (event.alpha !== null) {
+
+        heading = 360 - event.alpha;
+
+    }
+
 
     if (heading !== null && !isNaN(heading)) {
 
         heading = (heading + 360) % 360;
 
+        /*
+         * Rotate the needle.
+         */
         needle.style.transform =
             `translate(-50%, -50%) rotate(${-heading}deg)`;
 
+
+        /*
+         * Display heading.
+         */
         headingDisplay.textContent =
             Math.round(heading) + "°";
+
 
         console.log("Compass heading:", heading);
     }
 }
 
 
+/* =========================
+   START COMPASS
+========================= */
+
 async function startCompass() {
 
-    // iPhone / iPad
+    if (compassStarted) return;
+
+    /*
+     * iPhone / iPad
+     */
     if (
         typeof DeviceOrientationEvent !== "undefined" &&
         typeof DeviceOrientationEvent.requestPermission === "function"
@@ -637,24 +681,28 @@ async function startCompass() {
                     true
                 );
 
-                compassButton.textContent = "Compass Active";
+                compassStarted = true;
+
+                headingDisplay.textContent = "0°";
 
             } else {
 
-                compassButton.textContent = "Permission Denied";
+                headingDisplay.textContent = "Denied";
 
             }
 
         } catch (error) {
 
-            console.log(error);
-            compassButton.textContent = "Error";
+            console.error(error);
 
+            headingDisplay.textContent = "Error";
         }
 
     }
 
-    // Android
+    /*
+     * Android / other browsers
+     */
     else {
 
         window.addEventListener(
@@ -669,16 +717,21 @@ async function startCompass() {
             true
         );
 
-        compassButton.textContent = "Compass Active";
+        compassStarted = true;
+
+        headingDisplay.textContent = "0°";
     }
 }
 
 
-compassButton.addEventListener(
+/* =========================
+   CLICK COMPASS TO START
+========================= */
+
+compass.addEventListener(
     "click",
     startCompass
 );
-
 </script>
 <!-- MAGNETIC COMPASS -->
 <div class="compass" id="compass">
