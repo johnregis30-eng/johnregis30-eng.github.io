@@ -666,7 +666,37 @@ function calculateDistance(lat1, lon1, lat2, lon2) {
     return R * c;
 }
 
+let celebrationRotation = null;
+let celebrationAngle = 0;
 
+function startCelebrationRotation() {
+
+    if (celebrationRotation !== null) {
+        return;
+    }
+
+    celebrationAngle = 0;
+
+    celebrationRotation = setInterval(() => {
+
+        celebrationAngle += 4;
+
+        needle.style.transform =
+            `translate(-50%, -50%) rotate(${celebrationAngle}deg)`;
+
+    }, 30);
+}
+
+
+function stopCelebrationRotation() {
+
+    if (celebrationRotation !== null) {
+
+        clearInterval(celebrationRotation);
+
+        celebrationRotation = null;
+    }
+}
 // =====================================
 // UPDATE ARROW
 // =====================================
@@ -675,6 +705,52 @@ function updateCompass() {
     if (currentHeading === null || currentPosition === null) {
         return;
     }
+
+    const targetBearing = calculateBearing(
+        currentPosition.latitude,
+        currentPosition.longitude,
+        targetLat,
+        targetLon
+    );
+
+    const distance = calculateDistance(
+        currentPosition.latitude,
+        currentPosition.longitude,
+        targetLat,
+        targetLon
+    );
+
+    // =====================================
+    // WITHIN 10 KM → START ROTATING
+    // =====================================
+    if (distance <= 10) {
+
+        headingDisplay.textContent =
+            `ARRIVED · ${distance.toFixed(2)} km`;
+
+        startCelebrationRotation();
+
+        return;
+    }
+
+    // =====================================
+    // MORE THAN 10 KM → NORMAL COMPASS
+    // =====================================
+
+    stopCelebrationRotation();
+
+    let relativeAngle =
+        targetBearing - currentHeading;
+
+    relativeAngle =
+        ((relativeAngle + 540) % 360) - 180;
+
+    needle.style.transform =
+        `translate(-50%, -50%) rotate(${relativeAngle}deg)`;
+
+    headingDisplay.textContent =
+        `${Math.round(targetBearing)}° · ${distance.toFixed(1)} km`;
+}
 
     const targetBearing = calculateBearing(
         currentPosition.latitude,
