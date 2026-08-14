@@ -834,39 +834,8 @@ function updateCompass() {
         `${Math.round(targetBearing)}° · ${distance.toFixed(1)} km`;
 }
 
-    const targetBearing = calculateBearing(
-        currentPosition.latitude,
-        currentPosition.longitude,
-        targetLat,
-        targetLon
-    );
 
-    // Direction relative to the way the phone is facing
-    let relativeAngle =
-        targetBearing - currentHeading;
-
-    relativeAngle =
-        ((relativeAngle + 540) % 360) - 180;
-
-    needle.style.transform =
-        `translate(-50%, -50%) rotate(${relativeAngle}deg)`;
-
-    const distance = calculateDistance(
-        currentPosition.latitude,
-        currentPosition.longitude,
-        targetLat,
-        targetLon
-    );
-
-    headingDisplay.textContent =
-        `${Math.round(targetBearing)}° · ${distance.toFixed(1)} km`;
-
-    console.log("Your position:", currentPosition);
-    console.log("Target bearing:", targetBearing);
-    console.log("Phone heading:", currentHeading);
-    console.log("Relative direction:", relativeAngle);
-}
-
+ 
 
 // =====================================
 // PHONE ORIENTATION
