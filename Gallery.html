@@ -1,0 +1,509 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>John | Gallery</title>
+
+<link rel="icon" type="image/jpeg"
+href="https://raw.githubusercontent.com/johnregis30-eng/johnregis30-eng.github.io/main/Red_Fox_5.jpg">
+
+<link href="https://fonts.googleapis.com/css2?family=Libre+Baskerville:wght@400;700&family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
+
+<style>
+
+/* =========================
+   GENERAL
+========================= */
+
+body{
+    margin:0;
+    font-family:"Inter",sans-serif;
+    background:#f4e9dc;
+    color:#2b2b2b;
+    line-height:1.7;
+}
+
+/* =========================
+   BACKGROUND FOX
+========================= */
+
+body::before{
+    content:"";
+    position:fixed;
+    top:50%;
+    right:-10vw;
+    transform:translateY(-50%);
+    width:60vw;
+    height:60vw;
+
+    background-image:url(
+        "https://johnregis30-eng.github.io/Red_Fox_2.jpg"
+    );
+
+    background-size:contain;
+    background-repeat:no-repeat;
+
+    opacity:0.10;
+    pointer-events:none;
+    z-index:-1;
+}
+
+/* =========================
+   HEADER
+========================= */
+
+header{
+    background:linear-gradient(
+        135deg,
+        #2b1b16,
+        #4a2416
+    );
+
+    color:white;
+
+    padding:3rem 2rem;
+
+    text-align:center;
+
+    position:relative;
+}
+
+header::after{
+    content:"";
+
+    position:absolute;
+
+    bottom:0;
+    left:0;
+
+    width:100%;
+    height:4px;
+
+    background:linear-gradient(
+        90deg,
+        #d04a1c,
+        #ff8a3c
+    );
+}
+
+/* =========================
+   FOX
+========================= */
+
+.fox-logo{
+    width:120px;
+
+    margin-bottom:15px;
+
+    border-radius:6px;
+
+    filter:drop-shadow(
+        0 8px 10px rgba(0,0,0,.25)
+    );
+}
+
+/* =========================
+   TITLE
+========================= */
+
+header h1{
+    font-family:"Libre Baskerville",serif;
+
+    font-size:40px;
+
+    letter-spacing:3px;
+
+    margin:0 0 8px;
+}
+
+header p{
+    opacity:.9;
+}
+
+/* =========================
+   NAVIGATION
+========================= */
+
+nav{
+    display:flex;
+
+    justify-content:center;
+
+    gap:2rem;
+
+    padding:1rem;
+
+    flex-wrap:wrap;
+}
+
+nav a{
+    position:relative;
+
+    color:#a63b16;
+
+    text-decoration:none;
+
+    font-weight:500;
+
+    letter-spacing:1px;
+
+    padding-bottom:4px;
+}
+
+nav a::after{
+    content:"";
+
+    position:absolute;
+
+    left:0;
+    bottom:0;
+
+    width:0;
+    height:2px;
+
+    background:#ff8a3c;
+
+    transition:width .3s ease;
+}
+
+nav a:hover::after{
+    width:100%;
+}
+
+nav a:hover{
+    color:#ff8a3c;
+}
+
+/* =========================
+   GALLERY CONTAINER
+========================= */
+
+.container{
+    max-width:1100px;
+
+    margin:3rem auto;
+
+    padding:1rem;
+}
+
+/* =========================
+   GALLERY TITLE
+========================= */
+
+.gallery-heading{
+    font-family:"Libre Baskerville",serif;
+
+    font-size:32px;
+
+    color:#6b321f;
+
+    margin-bottom:2rem;
+
+    letter-spacing:1px;
+
+    text-align:center;
+}
+
+.gallery-heading::after{
+    content:"";
+
+    display:block;
+
+    width:60px;
+    height:3px;
+
+    background:#ff8a3c;
+
+    margin:10px auto 0;
+}
+
+/* =========================
+   GALLERY GRID
+========================= */
+
+.gallery-grid{
+    display:grid;
+
+    grid-template-columns:
+        repeat(3, 1fr);
+
+    gap:20px;
+}
+
+/* =========================
+   PHOTO
+========================= */
+
+.gallery-item{
+    position:relative;
+
+    overflow:hidden;
+
+    border-radius:8px;
+
+    background:#ead8c6;
+
+    aspect-ratio:1 / 1;
+
+    cursor:pointer;
+
+    box-shadow:
+        0 5px 15px
+        rgba(43,27,22,.12);
+}
+
+.gallery-item img{
+    width:100%;
+    height:100%;
+
+    object-fit:cover;
+
+    display:block;
+
+    transition:
+        transform .4s ease,
+        filter .4s ease;
+}
+
+.gallery-item:hover img{
+    transform:scale(1.07);
+
+    filter:brightness(.82);
+}
+
+/* =========================
+   CAPTION
+========================= */
+
+.gallery-caption{
+    position:absolute;
+
+    left:0;
+    right:0;
+    bottom:0;
+
+    padding:15px;
+
+    color:white;
+
+    background:linear-gradient(
+        transparent,
+        rgba(43,27,22,.85)
+    );
+
+    opacity:0;
+
+    transform:translateY(10px);
+
+    transition:all .3s ease;
+}
+
+.gallery-item:hover
+.gallery-caption{
+    opacity:1;
+
+    transform:translateY(0);
+}
+
+/* =========================
+   FOOTER
+========================= */
+
+footer{
+    text-align:center;
+
+    padding:3rem;
+
+    margin-top:4rem;
+
+    font-size:14px;
+
+    color:#6f4b3a;
+}
+
+/* =========================
+   MOBILE
+========================= */
+
+@media(max-width:768px){
+
+    .gallery-grid{
+        grid-template-columns:
+            repeat(2,1fr);
+
+        gap:12px;
+    }
+
+    header h1{
+        font-size:32px;
+    }
+
+}
+
+@media(max-width:480px){
+
+    .gallery-grid{
+        grid-template-columns:1fr;
+    }
+
+}
+
+</style>
+
+</head>
+
+<body>
+
+<header>
+
+<img
+src="https://raw.githubusercontent.com/johnregis30-eng/johnregis30-eng.github.io/main/Red_Fox_1.jpg"
+class="fox-logo"
+alt="Fox Logo">
+
+<h1>Gallery</h1>
+
+<p>
+A collection of moments, places, experiments and everything in between.
+</p>
+
+</header>
+
+
+<nav>
+
+<a href="index.html">Home</a>
+
+<a href="index.html#about">About</a>
+
+<a href="index.html#projects">Projects</a>
+
+<a href="index.html#thoughts">Personal Notes</a>
+
+<a href="CV.html">CV</a>
+
+<a href="Gallery.html">Gallery</a>
+
+<a href="index.html#contact">Contact</a>
+
+</nav>
+
+
+<div class="container">
+
+<h2 class="gallery-heading">
+Gallery
+</h2>
+
+
+<div class="gallery-grid">
+
+
+<!-- PHOTO 1 -->
+
+<div class="gallery-item">
+
+<img
+src="gallery/photo1.jpg"
+alt="Photo 1">
+
+<div class="gallery-caption">
+Photo 1
+</div>
+
+</div>
+
+
+<!-- PHOTO 2 -->
+
+<div class="gallery-item">
+
+<img
+src="gallery/photo2.jpg"
+alt="Photo 2">
+
+<div class="gallery-caption">
+Photo 2
+</div>
+
+</div>
+
+
+<!-- PHOTO 3 -->
+
+<div class="gallery-item">
+
+<img
+src="gallery/photo3.jpg"
+alt="Photo 3">
+
+<div class="gallery-caption">
+Photo 3
+</div>
+
+</div>
+
+
+<!-- PHOTO 4 -->
+
+<div class="gallery-item">
+
+<img
+src="gallery/photo4.jpg"
+alt="Photo 4">
+
+<div class="gallery-caption">
+Photo 4
+</div>
+
+</div>
+
+
+<!-- PHOTO 5 -->
+
+<div class="gallery-item">
+
+<img
+src="gallery/photo5.jpg"
+alt="Photo 5">
+
+<div class="gallery-caption">
+Photo 5
+</div>
+
+</div>
+
+
+<!-- PHOTO 6 -->
+
+<div class="gallery-item">
+
+<img
+src="gallery/photo6.jpg"
+alt="Photo 6">
+
+<div class="gallery-caption">
+Photo 6
+</div>
+
+</div>
+
+
+</div>
+
+</div>
+
+
+<footer>
+
+© 2026 John
+
+</footer>
+
+</body>
+
+</html>
