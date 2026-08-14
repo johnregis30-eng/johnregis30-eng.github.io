@@ -6,73 +6,136 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>John | Gallery</title>
+<title>John | Arctic Journal</title>
 
+<!-- FAVICON -->
 <link rel="icon" type="image/jpeg"
 href="https://raw.githubusercontent.com/johnregis30-eng/johnregis30-eng.github.io/main/Red_Fox_5.jpg">
 
+<!-- FONTS -->
 <link href="https://fonts.googleapis.com/css2?family=Libre+Baskerville:wght@400;700&family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
 
 <style>
+
+/* =========================================================
+   ARCTIC FOX — GALLERY
+========================================================= */
+
 
 /* =========================
    GENERAL
 ========================= */
 
-body{
-    margin:0;
-    font-family:"Inter",sans-serif;
-    background:#f4e9dc;
-    color:#2b2b2b;
-    line-height:1.7;
+html{
+    scroll-behavior:smooth;
 }
 
+body{
+    margin:0;
+
+    font-family:"Inter",sans-serif;
+
+    background:#edf6f9;
+
+    color:#26343b;
+
+    line-height:1.7;
+
+    overflow-x:hidden;
+}
+
+
 /* =========================
-   BACKGROUND FOX
+   ARCTIC FOX BACKGROUND
 ========================= */
 
 body::before{
+
     content:"";
+
     position:fixed;
+
     top:50%;
-    right:-10vw;
+    right:-12vw;
+
     transform:translateY(-50%);
-    width:60vw;
-    height:60vw;
+
+    width:65vw;
+    height:65vw;
 
     background-image:url(
-        "https://johnregis30-eng.github.io/Red_Fox_2.jpg"
+        "arctic-fox-background.jpg"
     );
 
     background-size:contain;
     background-repeat:no-repeat;
+    background-position:center;
 
-    opacity:0.10;
+    opacity:.075;
+
     pointer-events:none;
+
     z-index:-1;
 }
+
 
 /* =========================
    HEADER
 ========================= */
 
 header{
-    background:linear-gradient(
-        135deg,
-        #2b1b16,
-        #4a2416
-    );
+
+    background:
+        linear-gradient(
+            135deg,
+            #071522 0%,
+            #102d42 55%,
+            #183f59 100%
+        );
 
     color:white;
 
-    padding:3rem 2rem;
+    padding:4.5rem 2rem 4rem;
 
     text-align:center;
 
     position:relative;
+
+    overflow:hidden;
 }
 
+
+/* subtle polar glow */
+
+header::before{
+
+    content:"";
+
+    position:absolute;
+
+    width:500px;
+    height:500px;
+
+    top:-300px;
+    left:50%;
+
+    transform:translateX(-50%);
+
+    background:
+        radial-gradient(
+            circle,
+            rgba(180,230,245,.14),
+            transparent 70%
+        );
+
+    pointer-events:none;
+}
+
+
+/* icy bottom line */
+
 header::after{
+
     content:"";
 
     position:absolute;
@@ -81,69 +144,120 @@ header::after{
     left:0;
 
     width:100%;
-    height:4px;
+    height:3px;
 
-    background:linear-gradient(
-        90deg,
-        #d04a1c,
-        #ff8a3c
-    );
+    background:
+        linear-gradient(
+            90deg,
+            #7fb9cc,
+            #d9f3ff,
+            #7fb9cc
+        );
 }
 
+
 /* =========================
-   FOX
+   ARCTIC FOX LOGO
 ========================= */
 
 .fox-logo{
-    width:120px;
 
-    margin-bottom:15px;
+    width:150px;
 
-    border-radius:6px;
+    margin-bottom:20px;
 
-    filter:drop-shadow(
-        0 8px 10px rgba(0,0,0,.25)
-    );
+    border-radius:8px;
+
+    filter:
+        drop-shadow(
+            0 10px 18px
+            rgba(0,0,0,.35)
+        );
+
+    transition:
+        transform .4s ease,
+        filter .4s ease;
 }
 
+.fox-logo:hover{
+
+    transform:
+        scale(1.04)
+        translateY(-3px);
+
+    filter:
+        drop-shadow(
+            0 15px 25px
+            rgba(0,0,0,.45)
+        );
+}
+
+
 /* =========================
-   TITLE
+   HEADER TITLE
 ========================= */
 
 header h1{
+
     font-family:"Libre Baskerville",serif;
 
-    font-size:40px;
+    font-size:44px;
 
-    letter-spacing:3px;
+    letter-spacing:4px;
 
-    margin:0 0 8px;
+    margin:0 0 10px;
 }
 
 header p{
+
     opacity:.9;
+
+    font-size:15px;
+
+    margin:0;
 }
+
+.header-subtitle{
+
+    margin-top:12px;
+
+    color:#b9dce9;
+
+    font-style:italic;
+
+    letter-spacing:.5px;
+}
+
 
 /* =========================
    NAVIGATION
 ========================= */
 
 nav{
+
     display:flex;
 
     justify-content:center;
+
+    align-items:center;
 
     gap:2rem;
 
     padding:1rem;
 
     flex-wrap:wrap;
+
+    background:#edf6f9;
+
+    border-bottom:
+        1px solid #cbdfe7;
 }
 
 nav a{
+
     position:relative;
 
-    color:#a63b16;
+    color:#315b6e;
 
     text-decoration:none;
 
@@ -152,9 +266,13 @@ nav a{
     letter-spacing:1px;
 
     padding-bottom:4px;
+
+    transition:
+        color .3s ease;
 }
 
 nav a::after{
+
     content:"";
 
     position:absolute;
@@ -163,100 +281,195 @@ nav a::after{
     bottom:0;
 
     width:0;
+
     height:2px;
 
-    background:#ff8a3c;
+    background:#72aec4;
 
-    transition:width .3s ease;
+    transition:
+        width .3s ease;
 }
 
 nav a:hover::after{
+
     width:100%;
 }
 
 nav a:hover{
-    color:#ff8a3c;
+
+    color:#508da5;
 }
 
+
+/* CURRENT PAGE */
+
+nav a.active{
+
+    color:#173b50;
+}
+
+nav a.active::after{
+
+    width:100%;
+
+    background:#8ec5d9;
+}
+
+
 /* =========================
-   GALLERY CONTAINER
+   MAIN CONTAINER
 ========================= */
 
 .container{
+
     max-width:1100px;
 
-    margin:3rem auto;
+    margin:4rem auto;
 
-    padding:1rem;
+    padding:1rem 1.5rem;
 }
+
 
 /* =========================
-   GALLERY TITLE
+   INTRODUCTION
 ========================= */
 
-.gallery-heading{
-    font-family:"Libre Baskerville",serif;
-
-    font-size:32px;
-
-    color:#6b321f;
-
-    margin-bottom:2rem;
-
-    letter-spacing:1px;
+.gallery-intro{
 
     text-align:center;
+
+    margin-bottom:3.5rem;
 }
 
-.gallery-heading::after{
+.gallery-intro h2{
+
+    font-family:"Libre Baskerville",serif;
+
+    font-size:36px;
+
+    color:#173b50;
+
+    margin:0;
+
+    letter-spacing:2px;
+}
+
+.gallery-intro h2::after{
+
     content:"";
 
     display:block;
 
-    width:60px;
+    width:65px;
+
     height:3px;
 
-    background:#ff8a3c;
+    background:#8ec5d9;
 
-    margin:10px auto 0;
+    margin:13px auto 0;
 }
+
+.gallery-intro p{
+
+    max-width:650px;
+
+    margin:16px auto 0;
+
+    color:#5d7884;
+
+    font-size:14px;
+
+    font-style:italic;
+}
+
+
+/* =========================
+   SMALL ARCTIC LABEL
+========================= */
+
+.arctic-label{
+
+    display:inline-block;
+
+    margin-bottom:14px;
+
+    padding:5px 12px;
+
+    border:1px solid #a9cbd7;
+
+    border-radius:20px;
+
+    color:#52798a;
+
+    font-size:10px;
+
+    letter-spacing:2px;
+
+    text-transform:uppercase;
+}
+
 
 /* =========================
    GALLERY GRID
 ========================= */
 
 .gallery-grid{
+
     display:grid;
 
     grid-template-columns:
-        repeat(3, 1fr);
+        repeat(12,1fr);
 
-    gap:20px;
+    grid-auto-rows:85px;
+
+    gap:18px;
 }
 
+
 /* =========================
-   PHOTO
+   GALLERY ITEM
 ========================= */
 
 .gallery-item{
+
     position:relative;
 
     overflow:hidden;
 
-    border-radius:8px;
+    background:#ffffff;
 
-    background:#ead8c6;
+    border:1px solid #cbdfe7;
 
-    aspect-ratio:1 / 1;
+    border-radius:5px;
 
     cursor:pointer;
 
     box-shadow:
-        0 5px 15px
-        rgba(43,27,22,.12);
+        0 7px 20px
+        rgba(30,70,90,.10);
+
+    transition:
+        transform .4s ease,
+        box-shadow .4s ease;
 }
 
+.gallery-item:hover{
+
+    transform:
+        translateY(-5px);
+
+    box-shadow:
+        0 16px 30px
+        rgba(30,70,90,.18);
+}
+
+
+/* =========================
+   IMAGE
+========================= */
+
 .gallery-item img{
+
     width:100%;
     height:100%;
 
@@ -265,55 +478,199 @@ nav a:hover{
     display:block;
 
     transition:
-        transform .4s ease,
-        filter .4s ease;
+        transform .7s ease,
+        filter .5s ease;
 }
 
 .gallery-item:hover img{
+
     transform:scale(1.07);
 
-    filter:brightness(.82);
+    filter:
+        brightness(.82)
+        saturate(.9);
 }
+
+
+/* =========================
+   DIFFERENT PHOTO SIZES
+========================= */
+
+
+/* Main photograph */
+
+.gallery-item:nth-child(1){
+
+    grid-column:span 7;
+
+    grid-row:span 6;
+}
+
+
+/* Two smaller photographs */
+
+.gallery-item:nth-child(2){
+
+    grid-column:span 5;
+
+    grid-row:span 3;
+}
+
+.gallery-item:nth-child(3){
+
+    grid-column:span 5;
+
+    grid-row:span 3;
+}
+
+
+/* Bottom photographs */
+
+.gallery-item:nth-child(4){
+
+    grid-column:span 5;
+
+    grid-row:span 5;
+}
+
+.gallery-item:nth-child(5){
+
+    grid-column:span 7;
+
+    grid-row:span 5;
+}
+
+
+/* Wide final photograph */
+
+.gallery-item:nth-child(6){
+
+    grid-column:span 12;
+
+    grid-row:span 5;
+}
+
 
 /* =========================
    CAPTION
 ========================= */
 
 .gallery-caption{
+
     position:absolute;
 
-    left:0;
-    right:0;
-    bottom:0;
+    left:16px;
+    bottom:16px;
 
-    padding:15px;
+    padding:7px 12px;
 
-    color:white;
+    background:
+        rgba(240,249,252,.94);
 
-    background:linear-gradient(
-        transparent,
-        rgba(43,27,22,.85)
-    );
+    color:#173b50;
+
+    font-family:
+        "Libre Baskerville",
+        serif;
+
+    font-size:12px;
+
+    letter-spacing:.4px;
+
+    border-radius:3px;
 
     opacity:0;
 
-    transform:translateY(10px);
+    transform:
+        translateY(10px);
 
-    transition:all .3s ease;
+    transition:
+        opacity .3s ease,
+        transform .3s ease;
 }
 
 .gallery-item:hover
 .gallery-caption{
+
     opacity:1;
 
-    transform:translateY(0);
+    transform:
+        translateY(0);
 }
+
+
+/* =========================
+   PHOTO NUMBER
+========================= */
+
+.gallery-item::before{
+
+    position:absolute;
+
+    top:12px;
+    right:12px;
+
+    z-index:2;
+
+    width:24px;
+    height:24px;
+
+    display:flex;
+
+    align-items:center;
+    justify-content:center;
+
+    border-radius:50%;
+
+    background:
+        rgba(7,21,34,.65);
+
+    color:white;
+
+    font-size:9px;
+
+    opacity:0;
+
+    transition:
+        opacity .3s ease;
+}
+
+.gallery-item:nth-child(1)::before{
+    content:"01";
+}
+
+.gallery-item:nth-child(2)::before{
+    content:"02";
+}
+
+.gallery-item:nth-child(3)::before{
+    content:"03";
+}
+
+.gallery-item:nth-child(4)::before{
+    content:"04";
+}
+
+.gallery-item:nth-child(5)::before{
+    content:"05";
+}
+
+.gallery-item:nth-child(6)::before{
+    content:"06";
+}
+
+.gallery-item:hover::before{
+
+    opacity:1;
+}
+
 
 /* =========================
    FOOTER
 ========================= */
 
 footer{
+
     text-align:center;
 
     padding:3rem;
@@ -322,8 +679,12 @@ footer{
 
     font-size:14px;
 
-    color:#6f4b3a;
+    color:#64808b;
+
+    border-top:
+        1px solid #cbdfe7;
 }
+
 
 /* =========================
    MOBILE
@@ -331,23 +692,152 @@ footer{
 
 @media(max-width:768px){
 
+    body::before{
+
+        right:-25vw;
+
+        width:100vw;
+        height:100vw;
+
+        opacity:.06;
+    }
+
+
+    header{
+
+        padding:
+            3.5rem 1.5rem;
+    }
+
+    header h1{
+
+        font-size:32px;
+
+        letter-spacing:3px;
+    }
+
+    .fox-logo{
+
+        width:125px;
+    }
+
+
+    nav{
+
+        gap:1rem 1.4rem;
+
+        padding:
+            1rem .7rem;
+    }
+
+    nav a{
+
+        font-size:13px;
+    }
+
+
+    .container{
+
+        margin:3rem auto;
+
+        padding:
+            1rem;
+    }
+
+
+    .gallery-intro h2{
+
+        font-size:29px;
+    }
+
+
     .gallery-grid{
+
         grid-template-columns:
             repeat(2,1fr);
+
+        grid-auto-rows:120px;
 
         gap:12px;
     }
 
-    header h1{
-        font-size:32px;
+
+    .gallery-item:nth-child(1){
+
+        grid-column:span 2;
+
+        grid-row:span 4;
+    }
+
+
+    .gallery-item:nth-child(2),
+    .gallery-item:nth-child(3){
+
+        grid-column:span 1;
+
+        grid-row:span 3;
+    }
+
+
+    .gallery-item:nth-child(4),
+    .gallery-item:nth-child(5){
+
+        grid-column:span 1;
+
+        grid-row:span 3;
+    }
+
+
+    .gallery-item:nth-child(6){
+
+        grid-column:span 2;
+
+        grid-row:span 3;
     }
 
 }
 
+
+/* =========================
+   SMALL PHONE
+========================= */
+
 @media(max-width:480px){
 
     .gallery-grid{
+
         grid-template-columns:1fr;
+
+        grid-auto-rows:220px;
+    }
+
+    .gallery-item:nth-child(n){
+
+        grid-column:span 1;
+
+        grid-row:span 1;
+    }
+
+    .gallery-item:nth-child(1){
+
+        grid-row:span 2;
+    }
+
+    .gallery-item:nth-child(6){
+
+        grid-row:span 1;
+    }
+
+    .gallery-caption{
+
+        opacity:1;
+
+        transform:none;
+
+        font-size:11px;
+
+        left:10px;
+        bottom:10px;
     }
 
 }
@@ -356,153 +846,204 @@ footer{
 
 </head>
 
+
 <body>
+
+
+<!-- =========================================================
+     HEADER
+========================================================= -->
 
 <header>
 
-<img
-src="https://raw.githubusercontent.com/johnregis30-eng/johnregis30-eng.github.io/main/Red_Fox_1.jpg"
-class="fox-logo"
-alt="Fox Logo">
+    <img
+        src="arctic-fox-logo.jpg"
+        class="fox-logo"
+        alt="Arctic Fox">
 
-<h1>Gallery</h1>
+    <h1>Arctic Journal</h1>
 
-<p>
-A collection of moments, places, experiments and everything in between.
-</p>
+    <p>
+        A collection of moments, places, experiments and everything in between.
+    </p>
+
+    <p class="header-subtitle">
+        Somewhere between observation and memory.
+    </p>
 
 </header>
 
 
+<!-- =========================================================
+     NAVIGATION
+========================================================= -->
+
 <nav>
 
-<a href="index.html">Home</a>
+    <a href="index.html">
+        Home
+    </a>
 
-<a href="index.html#about">About</a>
+    <a href="index.html#about">
+        About
+    </a>
 
-<a href="index.html#projects">Projects</a>
+    <a href="index.html#projects">
+        Projects
+    </a>
 
-<a href="index.html#thoughts">Personal Notes</a>
+    <a href="index.html#thoughts">
+        Personal Notes
+    </a>
 
-<a href="CV.html">CV</a>
+    <a href="CV.html">
+        CV
+    </a>
 
-<a href="Gallery.html">Gallery</a>
+    <a href="Gallery.html" class="active">
+        Gallery
+    </a>
 
-<a href="index.html#contact">Contact</a>
+    <a href="index.html#contact">
+        Contact
+    </a>
 
 </nav>
 
 
+<!-- =========================================================
+     GALLERY
+========================================================= -->
+
 <div class="container">
 
-<h2 class="gallery-heading">
-Gallery
-</h2>
+
+    <div class="gallery-intro">
+
+        <div class="arctic-label">
+            Visual Journal
+        </div>
+
+        <h2>
+            Through the Arctic Fox
+        </h2>
+
+        <p>
+            Photographs, places, small experiments and fragments
+            of life worth remembering.
+        </p>
+
+    </div>
 
 
-<div class="gallery-grid">
+    <div class="gallery-grid">
 
 
-<!-- PHOTO 1 -->
+        <!-- PHOTO 1 -->
 
-<div class="gallery-item">
+        <div class="gallery-item">
 
-<img
-src="gallery/photo1.jpg"
-alt="Photo 1">
+            <img
+                src="gallery/photo1.jpg"
+                alt="Photo 1">
 
-<div class="gallery-caption">
-Photo 1
+            <div class="gallery-caption">
+                Photo 01
+            </div>
+
+        </div>
+
+
+        <!-- PHOTO 2 -->
+
+        <div class="gallery-item">
+
+            <img
+                src="gallery/photo2.jpg"
+                alt="Photo 2">
+
+            <div class="gallery-caption">
+                Photo 02
+            </div>
+
+        </div>
+
+
+        <!-- PHOTO 3 -->
+
+        <div class="gallery-item">
+
+            <img
+                src="gallery/photo3.jpg"
+                alt="Photo 3">
+
+            <div class="gallery-caption">
+                Photo 03
+            </div>
+
+        </div>
+
+
+        <!-- PHOTO 4 -->
+
+        <div class="gallery-item">
+
+            <img
+                src="gallery/photo4.jpg"
+                alt="Photo 4">
+
+            <div class="gallery-caption">
+                Photo 04
+            </div>
+
+        </div>
+
+
+        <!-- PHOTO 5 -->
+
+        <div class="gallery-item">
+
+            <img
+                src="gallery/photo5.jpg"
+                alt="Photo 5">
+
+            <div class="gallery-caption">
+                Photo 05
+            </div>
+
+        </div>
+
+
+        <!-- PHOTO 6 -->
+
+        <div class="gallery-item">
+
+            <img
+                src="gallery/photo6.jpg"
+                alt="Photo 6">
+
+            <div class="gallery-caption">
+                Photo 06
+            </div>
+
+        </div>
+
+
+    </div>
+
 </div>
 
-</div>
 
-
-<!-- PHOTO 2 -->
-
-<div class="gallery-item">
-
-<img
-src="gallery/photo2.jpg"
-alt="Photo 2">
-
-<div class="gallery-caption">
-Photo 2
-</div>
-
-</div>
-
-
-<!-- PHOTO 3 -->
-
-<div class="gallery-item">
-
-<img
-src="gallery/photo3.jpg"
-alt="Photo 3">
-
-<div class="gallery-caption">
-Photo 3
-</div>
-
-</div>
-
-
-<!-- PHOTO 4 -->
-
-<div class="gallery-item">
-
-<img
-src="gallery/photo4.jpg"
-alt="Photo 4">
-
-<div class="gallery-caption">
-Photo 4
-</div>
-
-</div>
-
-
-<!-- PHOTO 5 -->
-
-<div class="gallery-item">
-
-<img
-src="gallery/photo5.jpg"
-alt="Photo 5">
-
-<div class="gallery-caption">
-Photo 5
-</div>
-
-</div>
-
-
-<!-- PHOTO 6 -->
-
-<div class="gallery-item">
-
-<img
-src="gallery/photo6.jpg"
-alt="Photo 6">
-
-<div class="gallery-caption">
-Photo 6
-</div>
-
-</div>
-
-
-</div>
-
-</div>
-
+<!-- =========================================================
+     FOOTER
+========================================================= -->
 
 <footer>
 
-© 2026 John
+    © 2026 John · Arctic Journal
 
 </footer>
+
 
 </body>
 
