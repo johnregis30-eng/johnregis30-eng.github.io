@@ -343,9 +343,12 @@ opacity:0.12;
 }
 }
 
-/* HEADER */
+/* =========================
+   HEADER
+========================= */
+
 header{
-    min-height:460px;
+    height:360px;
     box-sizing:border-box;
 
     background:linear-gradient(
@@ -360,20 +363,83 @@ header{
 
     text-align:center;
     position:relative;
+    overflow:hidden;
 
     display:flex;
     flex-direction:column;
     justify-content:center;
     align-items:center;
 }
+
 header::after{
-content:"";
-position:absolute;
-bottom:0;
-left:0;
-width:100%;
-height:4px;
-background:linear-gradient(90deg,#d04a1c,#ff8a3c);
+    content:"";
+    position:absolute;
+    bottom:0;
+    left:0;
+    width:100%;
+    height:4px;
+
+    background:linear-gradient(
+        90deg,
+        #d04a1c,
+        #ff8a3c
+    );
+}
+
+
+/* =========================
+   RED FOX LOGO
+========================= */
+
+.fox-logo{
+    width:150px;
+
+    margin-bottom:20px;
+
+    border-radius:6px;
+
+    filter:
+        drop-shadow(
+            0 8px 10px
+            rgba(0,0,0,.25)
+        );
+
+    transition:
+        transform .35s ease;
+}
+
+.fox-logo:hover{
+    transform:scale(1.05);
+}
+
+
+/* =========================
+   HEADER TEXT
+========================= */
+
+header h1{
+    font-family:"Libre Baskerville",serif;
+
+    font-size:48px;
+    letter-spacing:3px;
+
+    margin:0 0 10px;
+}
+
+header p{
+    opacity:.9;
+
+    font-size:15px;
+
+    margin:0;
+}
+
+.hero-quote{
+    margin-top:12px;
+
+    font-style:italic;
+
+    color:#f3c7a5;
 }
 
 /* FOX LOGO */
