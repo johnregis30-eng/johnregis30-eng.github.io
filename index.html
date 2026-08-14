@@ -345,11 +345,25 @@ opacity:0.12;
 
 /* HEADER */
 header{
-background:linear-gradient(135deg,#2b1b16,#4a2416);
-color:white;
-padding:5rem 2rem;
-text-align:center;
-position:relative;
+    height:360px;
+    box-sizing:border-box;
+
+    background:linear-gradient(
+        135deg,
+        #2b1b16,
+        #4a2416
+    );
+
+    color:white;
+    padding:4rem 2rem;
+
+    text-align:center;
+    position:relative;
+
+    display:flex;
+    flex-direction:column;
+    justify-content:center;
+    align-items:center;
 }
 
 header::after{
