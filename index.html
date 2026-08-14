@@ -453,7 +453,7 @@ My work is in experimental condensed matter physics, particularly two-dimensiona
 </p>
 
 </section>
-:::
+
 
 <section id="projects" class="card">
 <h2>Projects</h2>
@@ -581,108 +581,7 @@ observer.observe(section);
 
 
 </script>
-<script>
-const needle = document.getElementById("needle");
-const headingDisplay = document.getElementById("heading");
-const compass = document.getElementById("compass");
 
-let active = false;
-
-function handleOrientation(event) {
-
-    console.log("Orientation event:", event);
-
-    let heading = null;
-
-    // iPhone
-    if (event.webkitCompassHeading !== undefined) {
-        heading = event.webkitCompassHeading;
-    }
-
-    // Android / other devices
-    else if (event.alpha !== null) {
-        heading = 360 - event.alpha;
-    }
-
-    if (heading !== null && !isNaN(heading)) {
-
-        heading = (heading + 360) % 360;
-
-        needle.style.transform =
-            `translate(-50%, -50%) rotate(${-heading}deg)`;
-
-        headingDisplay.textContent =
-            Math.round(heading) + "°";
-
-    } else {
-
-        headingDisplay.textContent = "No sensor";
-    }
-}
-
-
-async function startCompass() {
-
-    console.log("Starting compass...");
-
-    // iPhone / iPad
-    if (
-        typeof DeviceOrientationEvent !== "undefined" &&
-        typeof DeviceOrientationEvent.requestPermission === "function"
-    ) {
-
-        try {
-
-            const permission =
-                await DeviceOrientationEvent.requestPermission();
-
-            console.log("Permission:", permission);
-
-            if (permission === "granted") {
-
-                window.addEventListener(
-                    "deviceorientation",
-                    handleOrientation,
-                    true
-                );
-
-                headingDisplay.textContent = "Move phone";
-
-            } else {
-
-                headingDisplay.textContent = "Denied";
-            }
-
-        } catch (error) {
-
-            console.error(error);
-            headingDisplay.textContent = "Error";
-        }
-
-    }
-
-    // Android
-    else {
-
-        window.addEventListener(
-            "deviceorientation",
-            handleOrientation,
-            true
-        );
-
-        window.addEventListener(
-            "deviceorientationabsolute",
-            handleOrientation,
-            true
-        );
-
-        headingDisplay.textContent = "Move phone";
-    }
-}
-
-
-compass.addEventListener("click", startCompass);
-</script>
 <!-- MAGNETIC COMPASS -->
 <div class="compass" id="compass">
     <div class="compass-title">MAGNETIC FIELD</div>
