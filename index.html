@@ -609,25 +609,31 @@ const needle = document.getElementById("needle");
 const headingDisplay = document.getElementById("heading");
 const compass = document.getElementById("compass");
 
-let active = false;
+let compassStarted = false;
 
 function handleOrientation(event) {
 
-    console.log("Orientation event:", event);
+    console.log("ORIENTATION EVENT:", event);
 
     let heading = null;
 
-    // iPhone
-    if (event.webkitCompassHeading !== undefined) {
+    // iPhone / iPad
+    if (
+        typeof event.webkitCompassHeading === "number" &&
+        !isNaN(event.webkitCompassHeading)
+    ) {
         heading = event.webkitCompassHeading;
     }
 
-    // Android / other devices
-    else if (event.alpha !== null) {
+    // Android / other browsers
+    else if (
+        typeof event.alpha === "number" &&
+        !isNaN(event.alpha)
+    ) {
         heading = 360 - event.alpha;
     }
 
-    if (heading !== null && !isNaN(heading)) {
+    if (heading !== null) {
 
         heading = (heading + 360) % 360;
 
@@ -637,14 +643,18 @@ function handleOrientation(event) {
         headingDisplay.textContent =
             Math.round(heading) + "°";
 
+        console.log("HEADING:", heading);
+
     } else {
 
-        headingDisplay.textContent = "No sensor";
+        headingDisplay.textContent = "Sensor unavailable";
     }
 }
 
 
 async function startCompass() {
+
+    if (compassStarted) return;
 
     console.log("Starting compass...");
 
@@ -661,46 +671,38 @@ async function startCompass() {
 
             console.log("Permission:", permission);
 
-            if (permission === "granted") {
+            if (permission !== "granted") {
 
-                window.addEventListener(
-                    "deviceorientation",
-                    handleOrientation,
-                    true
-                );
-
-                headingDisplay.textContent = "Move phone";
-
-            } else {
-
-                headingDisplay.textContent = "Denied";
+                headingDisplay.textContent = "Permission denied";
+                return;
             }
 
         } catch (error) {
 
-            console.error(error);
-            headingDisplay.textContent = "Error";
+            console.error("Permission error:", error);
+            headingDisplay.textContent = "Permission error";
+            return;
         }
-
     }
 
-    // Android
-    else {
+    // Start listening
+    window.addEventListener(
+        "deviceorientation",
+        handleOrientation,
+        true
+    );
 
-        window.addEventListener(
-            "deviceorientation",
-            handleOrientation,
-            true
-        );
+    window.addEventListener(
+        "deviceorientationabsolute",
+        handleOrientation,
+        true
+    );
 
-        window.addEventListener(
-            "deviceorientationabsolute",
-            handleOrientation,
-            true
-        );
+    compassStarted = true;
 
-        headingDisplay.textContent = "Move phone";
-    }
+    headingDisplay.textContent = "Move phone";
+
+    console.log("Compass listener started.");
 }
 
 
