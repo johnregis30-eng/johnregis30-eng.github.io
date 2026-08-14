@@ -13,7 +13,8 @@
 href="https://raw.githubusercontent.com/johnregis30-eng/johnregis30-eng.github.io/main/Red_Fox_5.jpg">
 
 <!-- FONTS -->
-<link href="https://fonts.googleapis.com/css2?family=Libre+Baskerville:wght@400;700&family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Libre+Baskerville:wght@400;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+
 
 <style>
 
@@ -22,22 +23,23 @@ href="https://raw.githubusercontent.com/johnregis30-eng/johnregis30-eng.github.i
 ========================================================= */
 
 
-/* =========================
+/* =========================================================
    GENERAL
-========================= */
+========================================================= */
 
 html{
     scroll-behavior:smooth;
 }
 
 body{
+
     margin:0;
 
     font-family:"Inter",sans-serif;
 
-    background:#edf6f9;
+    background:#f2f2f2;
 
-    color:#26343b;
+    color:#292929;
 
     line-height:1.7;
 
@@ -45,9 +47,9 @@ body{
 }
 
 
-/* =========================
+/* =========================================================
    SILVER FOX BACKGROUND
-========================= */
+========================================================= */
 
 body::before{
 
@@ -56,11 +58,13 @@ body::before{
     position:fixed;
 
     top:50%;
+
     right:-12vw;
 
     transform:translateY(-50%);
 
     width:65vw;
+
     height:65vw;
 
     background-image:url(
@@ -68,10 +72,12 @@ body::before{
     );
 
     background-size:contain;
+
     background-repeat:no-repeat;
+
     background-position:center;
 
-    opacity:.065;
+    opacity:.055;
 
     pointer-events:none;
 
@@ -79,9 +85,9 @@ body::before{
 }
 
 
-/* =========================
+/* =========================================================
    HEADER
-========================= */
+========================================================= */
 
 header{
 
@@ -92,9 +98,9 @@ header{
     background:
         linear-gradient(
             135deg,
-            #071522 0%,
-            #102d42 55%,
-            #183f59 100%
+            #080808 0%,
+            #171717 55%,
+            #303030 100%
         );
 
     color:white;
@@ -117,9 +123,9 @@ header{
 }
 
 
-/* =========================
-   SUBTLE POLAR GLOW
-========================= */
+/* =========================================================
+   SUBTLE SILVER GLOW
+========================================================= */
 
 header::before{
 
@@ -128,9 +134,11 @@ header::before{
     position:absolute;
 
     width:500px;
+
     height:500px;
 
     top:-300px;
+
     left:50%;
 
     transform:translateX(-50%);
@@ -138,7 +146,7 @@ header::before{
     background:
         radial-gradient(
             circle,
-            rgba(210,225,232,.16),
+            rgba(255,255,255,.13),
             transparent 70%
         );
 
@@ -146,9 +154,9 @@ header::before{
 }
 
 
-/* =========================
-   ICY BOTTOM LINE
-========================= */
+/* =========================================================
+   SILVER BOTTOM LINE
+========================================================= */
 
 header::after{
 
@@ -157,24 +165,26 @@ header::after{
     position:absolute;
 
     bottom:0;
+
     left:0;
 
     width:100%;
+
     height:3px;
 
     background:
         linear-gradient(
             90deg,
-            #7f929b,
-            #e4edf1,
-            #7f929b
+            #555555,
+            #eeeeee,
+            #555555
         );
 }
 
 
-/* =========================
+/* =========================================================
    SILVER FOX LOGO
-========================= */
+========================================================= */
 
 .fox-logo{
 
@@ -185,9 +195,10 @@ header::after{
     border-radius:8px;
 
     filter:
+        grayscale(100%)
         drop-shadow(
             0 10px 18px
-            rgba(0,0,0,.35)
+            rgba(0,0,0,.5)
         );
 
     transition:
@@ -203,26 +214,29 @@ header::after{
         translateY(-3px);
 
     filter:
+        grayscale(100%)
         drop-shadow(
             0 15px 25px
-            rgba(0,0,0,.45)
+            rgba(0,0,0,.65)
         );
 }
 
 
-/* =========================
+/* =========================================================
    HEADER TITLE
-========================= */
+========================================================= */
 
 header h1{
 
-    font-family:"Libre Baskerville",serif;
+    font-family:
+        "Libre Baskerville",
+        serif;
 
     font-size:48px;
 
     letter-spacing:3px;
 
-    margin:0;
+    margin:0 0 0;
 }
 
 
@@ -231,28 +245,30 @@ header p{
     opacity:.9;
 
     margin:0;
+
+    color:#eeeeee;
 }
 
 
-/* =========================
+/* =========================================================
    HERO QUOTE
-========================= */
+========================================================= */
 
 .hero-quote{
 
-    margin-top:10px;
+    margin-top:0;
 
     font-style:italic;
 
-    color:#c7d7de;
+    color:#bdbdbd;
 
-    letter-spacing:.3px;
+    letter-spacing:.4px;
 }
 
 
-/* =========================
+/* =========================================================
    NAVIGATION
-========================= */
+========================================================= */
 
 nav{
 
@@ -268,10 +284,10 @@ nav{
 
     flex-wrap:wrap;
 
-    background:#edf6f9;
+    background:#eeeeee;
 
     border-bottom:
-        1px solid #cbdfe7;
+        1px solid #c9c9c9;
 }
 
 
@@ -279,7 +295,7 @@ nav a{
 
     position:relative;
 
-    color:#315b6e;
+    color:#3a3a3a;
 
     text-decoration:none;
 
@@ -308,7 +324,7 @@ nav a::after{
 
     height:2px;
 
-    background:#8caebc;
+    background:#555555;
 
     transition:
         width .3s ease;
@@ -323,17 +339,17 @@ nav a:hover::after{
 
 nav a:hover{
 
-    color:#5f899b;
+    color:#111111;
 }
 
 
-/* =========================
-   CV ACTIVE PAGE
-========================= */
+/* =========================================================
+   CURRENT PAGE
+========================================================= */
 
 nav a.active{
 
-    color:#173b50;
+    color:#111111;
 }
 
 
@@ -341,17 +357,17 @@ nav a.active::after{
 
     width:100%;
 
-    background:#9fbec9;
+    background:#777777;
 }
 
 
-/* =========================
+/* =========================================================
    MAIN CONTAINER
-========================= */
+========================================================= */
 
 .container{
 
-    max-width:1000px;
+    max-width:1100px;
 
     margin:4rem auto;
 
@@ -359,9 +375,9 @@ nav a.active::after{
 }
 
 
-/* =========================
-   CV CARDS
-========================= */
+/* =========================================================
+   CV CARD
+========================================================= */
 
 .card{
 
@@ -370,7 +386,7 @@ nav a.active::after{
     margin-bottom:2rem;
 
     border-bottom:
-        1px solid #cbdfe7;
+        1px solid #d0d0d0;
 
     opacity:0;
 
@@ -392,9 +408,9 @@ nav a.active::after{
 }
 
 
-/* =========================
+/* =========================================================
    SECTION HEADINGS
-========================= */
+========================================================= */
 
 .card h2{
 
@@ -402,7 +418,7 @@ nav a.active::after{
         "Libre Baskerville",
         serif;
 
-    color:#173b50;
+    color:#222222;
 
     margin-top:0;
 
@@ -420,19 +436,19 @@ nav a.active::after{
 
     display:block;
 
-    width:50px;
+    width:55px;
 
     height:3px;
 
-    background:#9fbec9;
+    background:#777777;
 
     margin-top:10px;
 }
 
 
-/* =========================
+/* =========================================================
    CV LIST
-========================= */
+========================================================= */
 
 .cv-list{
 
@@ -455,7 +471,7 @@ nav a.active::after{
     padding-bottom:1.5rem;
 
     border-bottom:
-        1px solid #d9e7ec;
+        1px solid #dedede;
 }
 
 
@@ -483,27 +499,27 @@ nav a.active::after{
 
     font-weight:500;
 
-    color:#52798a;
+    color:#666666;
 
     white-space:nowrap;
 }
 
 
-/* =========================
+/* =========================================================
    STRONG TEXT
-========================= */
+========================================================= */
 
 .card strong{
 
-    color:#294c5c;
+    color:#202020;
 
     font-weight:600;
 }
 
 
-/* =========================
-   LIST ITEMS
-========================= */
+/* =========================================================
+   LIST TEXT
+========================================================= */
 
 .card li{
 
@@ -511,25 +527,25 @@ nav a.active::after{
 }
 
 
-/* =========================
+/* =========================================================
    PARAGRAPHS
-========================= */
+========================================================= */
 
 .card p{
 
-    color:#506873;
+    color:#4a4a4a;
 
     margin-bottom:0;
 }
 
 
-/* =========================
+/* =========================================================
    LINKS
-========================= */
+========================================================= */
 
 a{
 
-    color:#527f91;
+    color:#555555;
 
     text-decoration:none;
 
@@ -542,13 +558,13 @@ a{
 
 a:hover{
 
-    color:#173b50;
+    color:#111111;
 }
 
 
-/* =========================
+/* =========================================================
    DOWNLOAD CV
-========================= */
+========================================================= */
 
 .cv-download{
 
@@ -558,13 +574,13 @@ a:hover{
         10px 20px;
 
     border:
-        1px solid #8faeb9;
+        1px solid #888888;
 
     border-radius:4px;
 
-    color:#315b6e;
+    color:#333333;
 
-    background:#f5fafc;
+    background:#fafafa;
 
     letter-spacing:.5px;
 
@@ -578,7 +594,7 @@ a:hover{
 
 .cv-download:hover{
 
-    background:#173b50;
+    background:#222222;
 
     color:white;
 
@@ -587,13 +603,13 @@ a:hover{
 
     box-shadow:
         0 8px 18px
-        rgba(30,70,90,.15);
+        rgba(0,0,0,.18);
 }
 
 
-/* =========================
+/* =========================================================
    FOOTER
-========================= */
+========================================================= */
 
 footer{
 
@@ -605,16 +621,16 @@ footer{
 
     font-size:14px;
 
-    color:#64808b;
+    color:#666666;
 
     border-top:
-        1px solid #cbdfe7;
+        1px solid #d0d0d0;
 }
 
 
-/* =========================
+/* =========================================================
    MOBILE
-========================= */
+========================================================= */
 
 @media(max-width:768px){
 
@@ -626,7 +642,7 @@ footer{
 
         height:100vw;
 
-        opacity:.05;
+        opacity:.045;
     }
 
 
@@ -639,9 +655,9 @@ footer{
 
     header h1{
 
-        font-size:34px;
+        font-size:32px;
 
-        letter-spacing:2px;
+        letter-spacing:3px;
     }
 
 
@@ -693,7 +709,7 @@ footer{
 
         flex-direction:column;
 
-        gap:.4rem;
+        gap:.5rem;
     }
 
 
@@ -715,9 +731,9 @@ footer{
 }
 
 
-/* =========================
+/* =========================================================
    SMALL PHONE
-========================= */
+========================================================= */
 
 @media(max-width:480px){
 
@@ -727,9 +743,17 @@ footer{
     }
 
 
+    header p{
+
+        font-size:13px;
+    }
+
+
     .hero-quote{
 
         font-size:13px;
+
+        margin-top:0;
     }
 
 
@@ -828,9 +852,9 @@ footer{
 <div class="container">
 
 
-<!-- =========================
+<!-- =========================================================
      EDUCATION
-========================= -->
+========================================================= -->
 
 <section id="education" class="card">
 
@@ -901,9 +925,9 @@ Spectral Studies of Samarium – a rare earth metal using Polyvinyl Alcohol as H
 </section>
 
 
-<!-- =========================
+<!-- =========================================================
      RESEARCH EXPERIENCE
-========================= -->
+========================================================= -->
 
 <section id="research" class="card">
 
@@ -1046,9 +1070,9 @@ Aug – Dec 2024
 </section>
 
 
-<!-- =========================
+<!-- =========================================================
      QUANTUM LAB
-========================= -->
+========================================================= -->
 
 <section id="quantum-lab" class="card">
 
@@ -1124,9 +1148,9 @@ Designing an experimental configuration for optical detection of magnetic resona
 </section>
 
 
-<!-- =========================
+<!-- =========================================================
      SKILLS
-========================= -->
+========================================================= -->
 
 <section id="skills" class="card">
 
@@ -1157,8 +1181,7 @@ Raman spectroscopy.
 
 <strong>Software and Tools:</strong>
 
-Basic CAD, OriginPro, MATLAB,
-Python (NumPy, Matplotlib)
+Basic CAD, OriginPro, MATLAB, Python (NumPy, Matplotlib)
 
 </div>
 
@@ -1171,8 +1194,8 @@ Python (NumPy, Matplotlib)
 
 <strong>Soft Skills:</strong>
 
-Scientific writing, documentation,
-presentation, and collaborative research
+Scientific writing, documentation, presentation,
+and collaborative research
 
 </div>
 
@@ -1183,9 +1206,9 @@ presentation, and collaborative research
 </section>
 
 
-<!-- =========================
+<!-- =========================================================
      WORKSHOPS
-========================= -->
+========================================================= -->
 
 <section id="workshops" class="card">
 
@@ -1238,9 +1261,9 @@ Earned an Elite Certificate.
 </section>
 
 
-<!-- =========================
+<!-- =========================================================
      RESEARCH INTERESTS
-========================= -->
+========================================================= -->
 
 <section id="research-interests" class="card">
 
@@ -1255,26 +1278,27 @@ Research interests lie in condensed matter physics, focusing on quantum material
 </section>
 
 
-<!-- =========================
+<!-- =========================================================
      DOWNLOAD CV
-========================= -->
+========================================================= -->
 
 <div style="text-align:center; margin-top:30px;">
 
-<a href="John_Regis_CV.pdf"
-   download
-   class="cv-download">
+<a
+    href="John_Regis_CV.pdf"
+    download
+    class="cv-download">
 
-⬇ Download CV
+    ↓ Download CV
 
 </a>
 
 </div>
 
 
-<!-- =========================
+<!-- =========================================================
      BACK TO PORTFOLIO
-========================= -->
+========================================================= -->
 
 <p style="text-align:center; margin-top:2rem;">
 
@@ -1300,7 +1324,7 @@ Research interests lie in condensed matter physics, focusing on quantum material
 
 
 <!-- =========================================================
-     FADE-IN SCRIPT
+     FADE-IN ANIMATION
 ========================================================= -->
 
 <script>
